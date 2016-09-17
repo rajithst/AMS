@@ -3,7 +3,7 @@
 
 <head>
         <!-- Import header content -->
-        <?php require_once '_header.php'; ?>
+        <?php require_once 'includes/_header.php'; ?>
 
         <title>ANS | ASSET RE-VALUATOIN</title>
 </head>
@@ -13,7 +13,7 @@
     <div id="wrapper">
 
         <!-- import navigation  -->
-        <?php require_once '_navigation.php'; ?>
+        <?php require_once 'includes/_navigation.php'; ?>
 
         <div id="page-wrapper">
 
@@ -225,18 +225,9 @@
     </div>
     <!-- /#wrapper -->
 
-    <!-- jQuery -->
-    <script src="<?php echo base_url('assets/js/jquery-2.1.4.min.js'); ?> "></script>
+    <!-- Include footer  -->
+    <?php require_once 'includes/_footer.php'; ?>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="<?php echo base_url('assets/js/bootstrap.min.js'); ?>"></script>
-
-    <script type="text/javascript">
-      $('#re_valuation').addClass('active');
-      var now = new Date();
-      var formated_date = now.getDate() + ' / ' + now.getMonth() + ' / ' + now.getFullYear();
-      $('#date').val(formated_date);
-    </script>
 </body>
 
 </html>

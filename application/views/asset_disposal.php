@@ -3,7 +3,7 @@
 
 <head>
         <!-- Import header content -->
-        <?php require_once '_header.php'; ?>
+        <?php require_once 'includes/_header.php'; ?>
 
 </head>
 <title>ANS | ASSET DISPOSAL</title>
@@ -13,7 +13,7 @@
     <div id="wrapper">
 
         <!-- import navigation  -->
-        <?php require_once '_navigation.php'; ?>
+        <?php require_once 'includes/_navigation.php'; ?>
 
         <div id="page-wrapper">
 
@@ -87,7 +87,7 @@
                                 <label>Asset Location</label>
                                 <input type="text" name="asset_location" value="" class="form-control">
                               </div>
-                              
+
                             </div>
 
                             <div class="row col-lg-8">
@@ -120,18 +120,8 @@
     </div>
     <!-- /#wrapper -->
 
-    <!-- jQuery -->
-    <script src="<?php echo base_url('assets/js/jquery-2.1.4.min.js'); ?> "></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="<?php echo base_url('assets/js/bootstrap.min.js'); ?>"></script>
-
-    <script type="text/javascript">
-      $('#asset_register').addClass('active');
-      var now = new Date();
-      var formated_date = now.getDate() + ' / ' + now.getMonth() + ' / ' + now.getFullYear();
-      $('#date').val(formated_date);
-    </script>
+    <?php require_once 'includes/_footer.php'; ?>
+    
 </body>
 
 </html>

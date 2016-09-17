@@ -1,3 +1,4 @@
+
 .DS_Store
 
 application/cache/*
@@ -14,14 +15,14 @@ user_guide_src/cilexer/dist/*
 user_guide_src/cilexer/pycilexer.egg-info/*
 /vendor/
 
-# IDE Files
-#-------------------------
 /nbproject/
 .idea/*
 
-## Sublime Text cache files
 *.tmlanguage.cache
 *.tmPreferences.cache
 *.stTheme.cache
 *.sublime-workspace
 *.sublime-project
+
+database.php
+>>>>>>> 208040119b030beb86bf5fb603f9c47a936401bb

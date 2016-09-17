@@ -5,7 +5,7 @@
         <!-- Import header content -->
         <?php require_once 'includes/_header.php'; ?>
 
-        <title>ANS | ASSET REGISTER</title>
+        <title>ANS | ASSET RE-VALUATOIN</title>
 </head>
 
 <body>
@@ -55,11 +55,13 @@
                             </div>
                             <hr class="col-lg-8">
                             <div class="row col-lg-8">
-                                <div class="form-group col-lg-4" id="assetcatdiv">
+                                <div class="form-group col-lg-4">
                                     <label>Asset Category</label>
-                                    <select class="form-control" name="asset_category" id="assetcat" >
-                                        <option value="cat 1">--SELECT CATEGORY--</option>
-
+                                    <select class="form-control" name="asset_category" >
+                                        <option value="cat 1">Category 1</option>
+                                        <option value="cat 2">Category 2</option>
+                                        <option value="cat 3">Category 3</option>
+                                        <option value="cat 4">Category 4</option>
 
                                     </select>
                                 </div>
@@ -223,46 +225,9 @@
     </div>
     <!-- /#wrapper -->
 
+    <!-- Include footer  -->
     <?php require_once 'includes/_footer.php'; ?>
+
 </body>
 
 </html>
-<script>
-
-    $(document).ready(function () {
-
-
-            $.ajax({
-
-                url:'admin/Assetdata/getAssetCategory',
-                type:"json",
-                success:function (data) {
-                    var data = $.parseJSON(data);
-                    $('select#assetcat').html("");
-
-                    $.each(data, function(i, value) {
-                        //$('div#assetcatdiv >select#assetcat').html("<option value='cat 1'>--SELECT CATEGORY--</option>");
-                        $('div#assetcatdiv>select#assetcat').append('<option value="' + value.id + '">' + value.asset_category + '</option>');
-
-                    });
-
-
-                }
-
-
-            });
-
-
-
-
-
-    });
-
-
-
-
-
-
-
-
-</script>

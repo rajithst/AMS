@@ -3,7 +3,7 @@
 
 <head>
         <!-- Import header content -->
-        <?php require_once '_header.php'; ?>
+        <?php require_once 'includes/_header.php'; ?>
 
         <title>ANS | HOME</title>
 </head>
@@ -13,7 +13,7 @@
     <div id="wrapper">
 
         <!-- import navigation  -->
-        <?php require_once '_navigation.php'; ?>
+        <?php require_once 'includes/_navigation.php'; ?>
 
         <div id="page-wrapper">
 
@@ -26,7 +26,7 @@
                             Blank Pagebr
                             <br><br><br><br>
                             <br><br>
-                            
+
                             <small>Subheading</small>
                         </h1>
                         <ol class="breadcrumb">
@@ -50,11 +50,7 @@
     </div>
     <!-- /#wrapper -->
 
-    <!-- jQuery -->
-    <script src="<?php echo base_url('assets/js/jquery-2.1.4.min.js'); ?> "></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="<?php echo base_url('assets/js/bootstrap.min.js'); ?>"></script>
+    <?php require_once 'includes/_footer.php'; ?>
 
 </body>
 

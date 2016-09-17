@@ -5,7 +5,7 @@
         <!-- Import header content -->
         <?php require_once '_header.php'; ?>
 
-        <title>ANS | ASSET REGISTER</title>
+        <title>ANS | ASSET RE-VALUATOIN</title>
 </head>
 
 <body>
@@ -232,7 +232,7 @@
     <script src="<?php echo base_url('assets/js/bootstrap.min.js'); ?>"></script>
 
     <script type="text/javascript">
-      $('#asset_register').addClass('active');
+      $('#re_valuation').addClass('active');
       var now = new Date();
       var formated_date = now.getDate() + ' / ' + now.getMonth() + ' / ' + now.getFullYear();
       $('#date').val(formated_date);

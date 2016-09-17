@@ -57,7 +57,7 @@
                             <div class="row col-lg-8">
                                 <div class="form-group col-lg-4">
                                     <label>Asset Category</label>
-                                    <select class="form-control" name="asset_category" >
+                                    <select class="form-control" name="asset_category" id="assetcat" >
                                         <option value="cat 1">Category 1</option>
                                         <option value="cat 2">Category 2</option>
                                         <option value="cat 3">Category 3</option>
@@ -240,3 +240,43 @@
 </body>
 
 </html>
+<script>
+
+    $(document).ready(function () {
+
+        $("select#assetcat").click(function(){
+
+            $.ajax({
+
+                url:'admin/Assetdata/getAssetCategory',
+                type:"post",
+                success:function (data) {
+
+
+
+                }
+
+
+            })
+
+
+
+        });
+
+
+
+
+
+
+
+
+    });
+
+
+
+
+
+
+
+
+</script>

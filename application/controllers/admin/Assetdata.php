@@ -15,8 +15,8 @@ class Assetdata extends Admin_Controller{
     function getAssetCategory(){
 
         $data = $this->Asset_data->getall();
-        var_dump($data);
 
+        echo  json_encode($data);
 
     }
 

@@ -109,22 +109,22 @@
     <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav side-nav">
             <li id="asset_register">
-                <a href="index.html"><i class="fa fa-fw fa-database"></i> Asset Registration</a>
+                <a href="register"><i class="fa fa-fw fa-database"></i> Asset Registration</a>
             </li>
             <li id="re_valuation">
-                <a href="charts.html"><i class="fa fa-fw fa-recycle "></i> Re-valuation</a>
+                <a href="re_valuation"><i class="fa fa-fw fa-recycle "></i> Re-valuation</a>
             </li>
             <li id="user_management">
-                <a href="forms.html"><i class="fa fa-fw fa-users "></i> User Management</a>
+                <a href="/AMS/index.php/User/management"><i class="fa fa-fw fa-users "></i> User Management</a>
             </li>
             <li id="asset_movement">
                 <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Asset Movement <i class="fa fa-fw fa-caret-down"></i></a>
                 <ul id="demo" class="collapse">
                     <li id="disposal">
-                        <a href="#">Disposal</a>
+                        <a href="disposal">Disposal</a>
                     </li>
                     <li id="loc_change">
-                        <a href="#">Location Change</a>
+                        <a href="location_change">Location Change</a>
                     </li>
                     <li id="owner_change">
                         <a href="#">Owner Change</a>

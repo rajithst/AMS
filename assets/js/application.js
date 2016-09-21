@@ -16,5 +16,4 @@ $(document).ready(function () {
     default:
 
   }
-})
-//// select2 plugin for selection 
+});

@@ -17,3 +17,4 @@ $(document).ready(function () {
 
   }
 })
+//// select2 plugin for selection 

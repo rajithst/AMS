@@ -4,6 +4,9 @@
 <!-- Bootstrap Core JavaScript -->
 <script src="<?php echo base_url('assets/js/bootstrap.min.js'); ?>"></script>
 
+<!-- select2 Core JavaScript -->
+<script src="<?php echo base_url('assets/js/select2.min.js'); ?>"></script>
+
 <!-- Application Core JavaScript -->
 <script src="<?php echo base_url('assets/js/application.js'); ?>"></script>
 

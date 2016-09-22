@@ -7,6 +7,9 @@
 <!-- Bootstrap Core CSS -->
 <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.css'); ?> ">
 
+<!-- select2 Core CSS -->
+<link rel="stylesheet" href="<?php echo base_url('assets/css/select2.min.css'); ?> ">
+
 <!-- Custom CSS -->
 <link href="<?php echo base_url('assets/css/sb-admin.css'); ?>" rel="stylesheet">
 

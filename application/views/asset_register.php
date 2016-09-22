@@ -232,29 +232,58 @@
     $(document).ready(function () {
 
 
-            $.ajax({
+            // $.ajax({
+            //
+            //     url:'admin/Assetdata/getAssetCategory',
+            //     type:"json",
+            //     success:function (data) {
+            //         var data = $.parseJSON(data);
+            //         $('select#assetcat').html("");
+            //
+            //         $.each(data, function(i, value) {
+            //             //$('div#assetcatdiv >select#assetcat').html("<option value='cat 1'>--SELECT CATEGORY--</option>");
+            //             $('div#assetcatdiv>select#assetcat').append('<option value="' + value.id + '">' + value.asset_category + '</option>');
+            //
+            //         });
+            //
+            //
+            //     }
+            //
+            //
+            // });
 
-                url:'admin/Assetdata/getAssetCategory',
-                type:"json",
-                success:function (data) {
-                    var data = $.parseJSON(data);
-                    $('select#assetcat').html("");
+            // $('#assetcat').select2({
+            //   ajax:{
+            //     url:"admin/Assetdata/getAssetCategory",
+            //     dataType:"json",
+            //     delay:250,
+            //     processResults:function(data){
+            //       console.log('helel');
+            //       return data;
+            //     }
+            //   }
+            // });
 
-                    $.each(data, function(i, value) {
-                        //$('div#assetcatdiv >select#assetcat').html("<option value='cat 1'>--SELECT CATEGORY--</option>");
-                        $('div#assetcatdiv>select#assetcat').append('<option value="' + value.id + '">' + value.asset_category + '</option>');
-
-                    });
-
-
-                }
-
-
+            $(".js-data-example-ajax").select2({
+              ajax: {
+                url: "admin/Assetdata/getAssetCategory",
+                dataType: 'json',
+                delay: 250,
+                data: function (params) {
+                  return {
+                    q: params.term,
+                    page: params.page
+                  };
+                },
+                processResults: function (data, page) {
+                  return data.items;
+                },
+                cache: true
+              },
+              minimumInputLength: 1,
+              templateResult: formatRepo, // omitted for brevity, see the source of this page
+              templateSelection: formatRepoSelection // omitted for brevity, see the source of this page
             });
-
-
-
-
 
     });
 

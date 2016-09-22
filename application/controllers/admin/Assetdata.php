@@ -1,23 +1,30 @@
 <?php
 
-class Assetdata extends Admin_Controller{
+class Assetdata extends Admin_Controller {
+	/**
+	 * Assetdata constructor.
+	 */
+	public function __construct() {
 
+		parent::__construct();
+		$this->load->model('Asset_data');
+	}
 
-    /**
-     * Assetdata constructor.
-     */
-    public function __construct(){
+	function getAssetCategory() {
 
-        parent::__construct();
-        $this->load->model('Asset_data');
-    }
+		$data = $this->Asset_data->getall();
 
-    function getAssetCategory(){
+		echo json_encode($data);
 
-        $data = $this->Asset_data->getall();
+	}
 
-        echo  json_encode($data);
+	function register() {
 
-    }
+		$retu = $this->Asset_data->register();
+		if ($retu == true) {
+			echo "inserted";
+		}
+
+	}
 
 }

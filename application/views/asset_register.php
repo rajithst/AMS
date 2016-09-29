@@ -60,7 +60,6 @@
                                     <select class="form-control" name="asset_category" id="assetcat" >
                                         <option value="cat 1">--SELECT CATEGORY--</option>
 
-
                                     </select>
                                 </div>
                                 <div class="form-group col-lg-4">
@@ -252,46 +251,39 @@
             //
             // });
 
-            // $('#assetcat').select2({
-            //   ajax:{
-            //     url:"admin/Assetdata/getAssetCategory",
-            //     dataType:"json",
-            //     delay:250,
-            //     processResults:function(data){
-            //       console.log('helel');
-            //       return data;
-            //     }
-            //   }
-            // });
-
-            $(".js-data-example-ajax").select2({
-              ajax: {
-                url: "admin/Assetdata/getAssetCategory",
-                dataType: 'json',
-                delay: 250,
-                data: function (params) {
+            $('#assetcat').select2({
+              ajax:{
+                url:"/AMS/index.php/admin/Assetdata/getAssetCategory",
+                dataType:"json",
+                delay:300,
+                processResults:function(data){
+                  console.log(data);
                   return {
-                    q: params.term,
-                    page: params.page
+                      results:data
                   };
                 },
-                processResults: function (data, page) {
-                  return data.items;
-                },
+
                 cache: true
-              },
-              minimumInputLength: 1,
-              templateResult: formatRepo, // omitted for brevity, see the source of this page
-              templateSelection: formatRepoSelection // omitted for brevity, see the source of this page
+
+              }
             });
 
+            // $("#assetcat").select2({
+            //   console.log('lll');
+            //   ajax: {
+            //     url: "admin/Assetdata/getAssetCategory",
+            //     dataType: 'json',
+            //     delay: 250,
+            //     processResults: function (data) {
+            //       return data;
+            //     },
+            //     cache: true
+            //   },
+            //   minimumInputLength: 1,
+            //   templateResult: formatRepo, // omitted for brevity, see the source of this page
+            // });
+
     });
-
-
-
-
-
-
 
 
 </script>

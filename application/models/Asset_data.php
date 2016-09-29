@@ -14,7 +14,7 @@ class Asset_data extends MY_Model{
     }
 
     function getCategory(){
-        $sql = "SELECT * FROM asset_category";
+        $sql = "SELECT cat_id AS id, cat_name AS text FROM Asset_category";
         $query = $this->db->query($sql);
         return $query->result();
     }

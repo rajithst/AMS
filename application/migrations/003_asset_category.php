@@ -16,11 +16,11 @@ class Migration_asset_category extends CI_Migration
         'auto_increment'=> TRUE
       ),
 
-      'cat_name'=>array(
+      'categories'=>array(
         'type'=>'VARCHAR',
-        'constraint'=>25,
+        'constraint'=>100,
 
-      ),
+      )
 
     ));
 

@@ -16,7 +16,7 @@ class Migration_asset_category extends CI_Migration
         'auto_increment'=> TRUE
       ),
 
-      'categories'=>array(
+      'category'=>array(
         'type'=>'VARCHAR',
         'constraint'=>100,
 

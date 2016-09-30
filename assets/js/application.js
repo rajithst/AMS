@@ -12,6 +12,12 @@ $(document).ready(function () {
     case 'disposal':
       $('#asset_movement').addClass('active');
       $('#disposal').addClass('active');
+    case 'location':
+      $('#master_table').addClass('active');
+      $('#add_location').addClass('active');
+    case 'category':
+      $('#master_table').addClass('active');
+      $('#add_category').addClass('active');
 
     default:
 

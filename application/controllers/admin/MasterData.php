@@ -25,10 +25,17 @@ class MasterData extends Admin_Controller {
 		if ($res) {
 			echo "
 			<script>
-							alert('New category add.');
-							//setTimeout(function () {
-								//	swal('Success', 'You entered new category', 'success';
-							//}, 1000);
+							setTimeout(function () {
+									swal('Success', 'You entered new category', 'success');
+							}, 700);
+						</script>";
+			$this->load->view('master_categories');
+		}else{
+			echo "
+			<script>
+							setTimeout(function () {
+									swal('Sorry', 'Something went wrong.', 'error');
+							}, 700);
 						</script>";
 			$this->load->view('master_categories');
 		}
@@ -37,14 +44,21 @@ class MasterData extends Admin_Controller {
 
 	function addSubCategory() {
 
-		$res = $this->Category_data->add();
-		if ($res) {
+		$res2 = $this->Sub_category_data->add();
+		if ($res2) {
 			echo "
 			<script>
-							alert('New category add.');
-							//setTimeout(function () {
-								//	swal('Success', 'You entered new category', 'success';
-							//}, 1000);
+							setTimeout(function () {
+								swal('Success', 'You entered new sub category', 'success';
+							}, 700);
+						</script>";
+			$this->load->view('master_categories');
+		}else{
+			echo "
+			<script>
+							setTimeout(function () {
+									swal('Sorry', 'Something went wrong.', 'error');
+							}, 700);
 						</script>";
 			$this->load->view('master_categories');
 		}

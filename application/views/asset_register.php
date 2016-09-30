@@ -60,16 +60,15 @@
                         <select class="form-control" name="asset_category" id="assetcat" >
                             <option value="cat 1">--SELECT CATEGORY--</option>
 
-
-                        </select>
-                    </div>
-                    <div class="form-group col-lg-4">
-                        <label>Asset Sub Category</label>
-                        <select class="form-control" name="sub_category" >
-                            <option value="cat 1">Sub Category 1</option>
-                            <option value="cat 2">Sub Category 2</option>
-                            <option value="cat 3">Sub Category 3</option>
-                            <option value="cat 4">Sub Category 4</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-lg-4">
+                                    <label>Asset Sub Category</label>
+                                    <select class="form-control" name="sub_category" >
+                                        <option value="cat 1">Sub Category 1</option>
+                                        <option value="cat 2">Sub Category 2</option>
+                                        <option value="cat 3">Sub Category 3</option>
+                                        <option value="cat 4">Sub Category 4</option>
 
                         </select>
                     </div>
@@ -232,37 +231,59 @@
 $(document).ready(function () {
 
 
-$.ajax({
+            // $.ajax({
+            //
+            //     url:'admin/Assetdata/getAssetCategory',
+            //     type:"json",
+            //     success:function (data) {
+            //         var data = $.parseJSON(data);
+            //         $('select#assetcat').html("");
+            //
+            //         $.each(data, function(i, value) {
+            //             //$('div#assetcatdiv >select#assetcat').html("<option value='cat 1'>--SELECT CATEGORY--</option>");
+            //             $('div#assetcatdiv>select#assetcat').append('<option value="' + value.id + '">' + value.asset_category + '</option>');
+            //
+            //         });
+            //
+            //
+            //     }
+            //
+            //
+            // });
 
-    url:'admin/Assetdata/getAssetCategory',
-    type:"json",
-    success:function (data) {
-        var data = $.parseJSON(data);
-        $('select#assetcat').html("");
+            $('#assetcat').select2({
+              ajax:{
+                url:"/AMS/index.php/admin/Assetdata/getAssetCategory",
+                dataType:"json",
+                delay:300,
+                processResults:function(data){
+                  console.log(data);
+                  return {
+                      results:data
+                  };
+                },
 
-        $.each(data, function(i, value) {
-            //$('div#assetcatdiv >select#assetcat').html("<option value='cat 1'>--SELECT CATEGORY--</option>");
-            $('div#assetcatdiv>select#assetcat').append('<option value="' + value.id + '">' + value.asset_category + '</option>');
+                cache: true
 
-        });
+              }
+            });
 
+            // $("#assetcat").select2({
+            //   console.log('lll');
+            //   ajax: {
+            //     url: "admin/Assetdata/getAssetCategory",
+            //     dataType: 'json',
+            //     delay: 250,
+            //     processResults: function (data) {
+            //       return data;
+            //     },
+            //     cache: true
+            //   },
+            //   minimumInputLength: 1,
+            //   templateResult: formatRepo, // omitted for brevity, see the source of this page
+            // });
 
-    }
-
-
-});
-
-
-
-
-
-});
-
-
-
-
-
-
+    });
 
 
 </script>

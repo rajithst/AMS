@@ -109,10 +109,10 @@
     <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav side-nav">
             <li id="asset_register">
-                <a href="register"><i class="fa fa-fw fa-database"></i> Asset Registration</a>
+                <a href="/AMS/index.php/Asset/register"><i class="fa fa-fw fa-database"></i> Asset Registration</a>
             </li>
             <li id="re_valuation">
-                <a href="re_valuation"><i class="fa fa-fw fa-recycle "></i> Re-valuation</a>
+                <a href="/AMS/index.php/Asset/re_valuation"><i class="fa fa-fw fa-recycle "></i> Re-valuation</a>
             </li>
             <li id="user_management">
                 <a href="/AMS/index.php/User/management"><i class="fa fa-fw fa-users "></i> User Management</a>
@@ -121,16 +121,30 @@
                 <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Asset Movement <i class="fa fa-fw fa-caret-down"></i></a>
                 <ul id="demo" class="collapse">
                     <li id="disposal">
-                        <a href="disposal">Disposal</a>
+                        <a href="/AMS/index.php/Asset/disposal">Disposal</a>
                     </li>
                     <li id="loc_change">
-                        <a href="location_change">Location Change</a>
+                        <a href="/AMS/index.php/Asset/location_change">Location Change</a>
                     </li>
                     <li id="owner_change">
                         <a href="#">Owner Change</a>
                     </li>
                 </ul>
             </li>
+
+            <li id="master_table">
+                <a href="javascript:;" data-toggle="collapse" data-target="#master_table_list"><i class="fa fa-fw fa-arrows-v"></i> Master Table <i class="fa fa-fw fa-caret-down"></i></a>
+                <ul id="master_table_list" class="collapse">
+                    <li id="add_category">
+                        <a href="/AMS/index.php/Master/categories">Add Categories</a>
+                    </li>
+                    <li id="add_location">
+                        <a href="/AMS/index.php/Master/locations">Add Locations</a>
+                    </li>
+
+                </ul>
+            </li>
+
             <li id="blank">
                 <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Blank Page</a>
             </li>

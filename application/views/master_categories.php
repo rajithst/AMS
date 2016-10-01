@@ -55,7 +55,7 @@
             <form action="/AMS/index.php/admin/MasterData/addSubCategory" method="post">
 
                 <div class="row col-lg-6">
-                    <div class="form-group col-lg-6" id="assetcatdiv">
+                    <div class="form-group col-lg-6" style="padding:0px">
                         <label>Asset Category</label>
                         <select class="form-control" name="asset_category" id="assetcat" required>
                             <option value="">--SELECT CATEGORY--</option>
@@ -65,7 +65,7 @@
                   <div class="row col-lg-8 ">
                     <div class="form-group ">
                         <label>Asset Sub Category</label>
-                        <input type="text" name="sub_cat" value="" required>
+                        <input type="text" name="sub_cat" required>
                     </div>
                   </div>
 
@@ -101,20 +101,20 @@
 <script>
 
 $(document).ready(function () {
-
-            $('#assetcat').select2({
-              ajax:{
-                url:"/AMS/index.php/admin/MasterData/getCategory",
-                dataType:"json",
-                delay:300,
-                processResults:function(data){
-                  return {
-                      results:data
-                  };
-                }
-              }
-            });
-    });
+  $('#assetcat').select2({
+    ajax:{
+      url:"/AMS/index.php/admin/MasterData/getCategory",
+      dataType:"json",
+      delay:300,
+      processResults:function(data){
+        return {
+            results:data
+        };
+      }
+    },
+    minimumResultsForSearch: Infinity
+  });
+});
 
 
 </script>

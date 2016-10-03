@@ -115,7 +115,16 @@
                 <a href="/AMS/index.php/Asset/re_valuation"><i class="fa fa-fw fa-recycle "></i> Re-valuation</a>
             </li>
             <li id="user_management">
-                <a href="/AMS/index.php/User/management"><i class="fa fa-fw fa-users "></i> User Management</a>
+                <a href="javascript:;" data-toggle="collapse" data-target="#user_table_list"><i class="fa fa-fw fa-arrows-v"></i> User Management <i class="fa fa-fw fa-caret-down"></i></a>
+                <ul id="user_table_list" class="collapse">
+                    <li id="add_user">
+                        <a href="/AMS/index.php/User/addUser">Add User</a>
+                    </li>
+                    <li id="edit_user">
+                        <a href="/AMS/index.php/User/editUser">Update User</a>
+                    </li>
+
+                </ul>
             </li>
             <li id="asset_movement">
                 <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Asset Movement <i class="fa fa-fw fa-caret-down"></i></a>

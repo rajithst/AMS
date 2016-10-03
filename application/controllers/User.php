@@ -6,12 +6,11 @@ class User extends CI_Controller{
   public function __construct()
   {
     parent::__construct();
-    //Codeigniter : Write Less Do More
   }
 
-  public function management()
+  public function addUser()
   {
-    $this->load->view('user_management');
+    $this->load->view('user_addUser');
   }
 
 }

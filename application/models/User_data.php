@@ -7,11 +7,14 @@ class User_data extends MY_Model {
 	protected $return_type  = 'array';
 
 	function add() {
-		$category_data = array(
-			'category'=> $this->input->post('asset_category')
+		$user_data = array(
+			'emp_id'=> $this->input->post('emp_id'),
+      'user_name'=> $this->input->post('emp_name'),
+      'password'=> $this->input->post('emp_pw'),
+      'user_group'=> $this->input->post('user_group')
 		);
 
-		$res = $this->db->insert('Asset_category', $category_data);
+		$res = $this->db->insert('User', $user_data);
 		if ($res) {
 			return true;
 		}

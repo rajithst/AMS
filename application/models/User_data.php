@@ -22,7 +22,7 @@ class User_data extends MY_Model {
 	}
 
   function getAll(){
-      $sql = "SELECT cat_id AS id, category AS text FROM Asset_category";
+      $sql = "SELECT emp_id AS id, user_name AS text FROM User";
       $query = $this->db->query($sql);
       return $query->result();
   }

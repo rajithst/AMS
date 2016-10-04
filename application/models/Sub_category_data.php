@@ -19,11 +19,12 @@ class Sub_category_data extends MY_Model {
 
 	}
 
-    // function getall(){
-    //     $sql = "SELECT * FROM Master_table";
-    //     $query = $this->db->query($sql);
-    //     return $query->result();
-    // }
+    function getall(){
+				$cat_id = $this->input->get('search');
+        $sql = "SELECT sub_cat_id AS id, sub_category AS text FROM Asset_sub_category WHERE category_id='$cat_id'";
+        $query = $this->db->query($sql);
+        return $query->result();
+    }
     //
     // function getCategory(){
     //     $sql = "SELECT cat_id AS id, cat_name AS text FROM Asset_category";

@@ -8,19 +8,12 @@ class UserData extends Admin_Controller {
 
 		parent::__construct();
 		$this->load->model('User_data');
-		// $this->load->model('Category_data');
-		// $this->load->model('Sub_category_data');
 	}
 
 	function getUser() {
 
-		$data = $this->Category_data->getall();
-		if($data){
-				echo json_encode($data);
-		}else{
-			echo "{'emp_id'=>'0'}";
-		}
-
+		$data = $this->User_data->getall();
+		echo json_encode($data);
 
 	}
 
@@ -33,15 +26,15 @@ class UserData extends Admin_Controller {
 
 	function addUser() {
 
-		$res = $this->Category_data->add();
+		$res = $this->User_data->add();
 		if ($res) {
 			echo "
 			<script>
 							setTimeout(function () {
-									swal('Success', 'You entered new category', 'success');
+									swal('Success', 'New member added.', 'success');
 							}, 700);
 						</script>";
-			$this->load->view('master_categories');
+			$this->load->view('user_addUser');
 		}else{
 			echo "
 			<script>
@@ -49,32 +42,32 @@ class UserData extends Admin_Controller {
 									swal('Sorry', 'Something went wrong.', 'error');
 							}, 700);
 						</script>";
-			$this->load->view('master_categories');
+			$this->load->view('user_addUser');
 		}
 
 	}
 
-	function addSubCategory() {
-
-		$res2 = $this->Sub_category_data->add();
-		if ($res2) {
-			echo "
-			<script>
-							setTimeout(function () {
-								swal('Success', 'You entered new sub category', 'success';
-							}, 700);
-						</script>";
-			$this->load->view('master_categories');
-		}else{
-			echo "
-			<script>
-							setTimeout(function () {
-									swal('Sorry', 'Something went wrong.', 'error');
-							}, 700);
-						</script>";
-			$this->load->view('master_categories');
-		}
-
-	}
+	// function addSubCategory() {
+	//
+	// 	$res2 = $this->Sub_category_data->add();
+	// 	if ($res2) {
+	// 		echo "
+	// 		<script>
+	// 						setTimeout(function () {
+	// 							swal('Success', 'You entered new sub category', 'success';
+	// 						}, 700);
+	// 					</script>";
+	// 		$this->load->view('master_categories');
+	// 	}else{
+	// 		echo "
+	// 		<script>
+	// 						setTimeout(function () {
+	// 								swal('Sorry', 'Something went wrong.', 'error');
+	// 						}, 700);
+	// 					</script>";
+	// 		$this->load->view('master_categories');
+	// 	}
+	//
+	// }
 
 }

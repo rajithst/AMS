@@ -12,6 +12,7 @@ class MasterData extends Admin_Controller {
 		$this->load->model('Sub_category_data');
 	}
 
+	// Getters
 	function getCategory() {
 
 		$data = $this->Category_data->getall();
@@ -19,6 +20,15 @@ class MasterData extends Admin_Controller {
 
 	}
 
+	function getSubCategory() {
+
+		$data = $this->Sub_category_data->getall();
+		echo json_encode($data);
+
+	}
+
+
+	//Setters
 	function addCategory() {
 
 		$res = $this->Category_data->add();

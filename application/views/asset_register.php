@@ -36,7 +36,7 @@
             </ol>
 
             <!-- Form Begin -->
-            <form action="admin/Assetdata/register" method="post">
+            <form action="/AMS/index.php/admin/Assetdata/register" method="post">
                 <div class="row col-lg-8">
                     <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xm-6">
                         <label>Date</label>
@@ -58,18 +58,14 @@
                     <div class="form-group col-lg-4" id="assetcatdiv">
                         <label>Asset Category</label>
                         <select class="form-control" name="asset_category" id="assetcat" >
-                            <option value="cat 1">--SELECT CATEGORY--</option>
+                            <option value="">--SELECT CATEGORY--</option>
 
-                                    </select>
-                                </div>
-                                <div class="form-group col-lg-4">
-                                    <label>Asset Sub Category</label>
-                                    <select class="form-control" name="sub_category" >
-                                        <option value="cat 1">Sub Category 1</option>
-                                        <option value="cat 2">Sub Category 2</option>
-                                        <option value="cat 3">Sub Category 3</option>
-                                        <option value="cat 4">Sub Category 4</option>
-
+                        </select>
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <label>Asset Sub Category</label>
+                        <select class="form-control" name="sub_category" id='sub_cat' disabled>
+                            <option value="">-- SELECT --</option>
                         </select>
                     </div>
                     <div class="form-group col-lg-4">
@@ -87,11 +83,9 @@
                 <div class="row col-lg-8">
                   <div class="form-group col-lg-6">
                     <label>Asset Owner</label>
-                    <select class="form-control" name="asset_owner">
-                      <option value="User1">User 1</option>
-                      <option value="User2">User 2</option>
-                      <option value="User3">User 3</option>
-                      <option value="User4">User 4</option>
+                    <select class="form-control" name="asset_owner" id="user_id">
+                      <option value="">-- Select --</option>
+
                     </select>
                   </div>
                 </div>
@@ -230,58 +224,66 @@
 
 $(document).ready(function () {
 
+            var cat_id ="";
 
-            // $.ajax({
-            //
-            //     url:'admin/Assetdata/getAssetCategory',
-            //     type:"json",
-            //     success:function (data) {
-            //         var data = $.parseJSON(data);
-            //         $('select#assetcat').html("");
-            //
-            //         $.each(data, function(i, value) {
-            //             //$('div#assetcatdiv >select#assetcat').html("<option value='cat 1'>--SELECT CATEGORY--</option>");
-            //             $('div#assetcatdiv>select#assetcat').append('<option value="' + value.id + '">' + value.asset_category + '</option>');
-            //
-            //         });
-            //
-            //
-            //     }
-            //
-            //
-            // });
-
+            //Get CATEGORY details
             $('#assetcat').select2({
               ajax:{
-                url:"/AMS/index.php/admin/Assetdata/getAssetCategory",
+                url:"/AMS/index.php/admin/MasterData/getCategory",
                 dataType:"json",
                 delay:300,
                 processResults:function(data){
-                  console.log(data);
                   return {
                       results:data
                   };
-                },
-
-                cache: true
-
-              }
+                }
+              },
+              minimumResultsForSearch: Infinity
             });
 
-            // $("#assetcat").select2({
-            //   console.log('lll');
-            //   ajax: {
-            //     url: "admin/Assetdata/getAssetCategory",
-            //     dataType: 'json',
-            //     delay: 250,
-            //     processResults: function (data) {
-            //       return data;
-            //     },
-            //     cache: true
-            //   },
-            //   minimumInputLength: 1,
-            //   templateResult: formatRepo, // omitted for brevity, see the source of this page
-            // });
+            //Enable sub CATEGORY option
+            $('#assetcat').change(function(){
+              cat_id = $('#assetcat').val();
+              $('#sub_cat').prop('disabled',false);
+              $('#sub_cat').val('');
+            });
+
+            //Get sub CATEGORY details
+            $('#sub_cat').select2({
+              ajax:{
+                url:"/AMS/index.php/admin/MasterData/getSubCategory",
+                dataType:"json",
+                data:function(params){
+                  var query = {
+                    search:cat_id,
+                  }
+                  return query;
+                },
+                delay:300,
+                processResults:function(data){
+                  return {
+                      results:data
+                  };
+                }
+              },
+              minimumResultsForSearch: Infinity
+            });
+
+            // Get user details
+            $('#user_id').select2({
+              ajax:{
+                url:"/AMS/index.php/admin/UserData/getUser",
+                dataType:"json",
+                delay:300,
+                processResults:function(data){
+                  return {
+                      results:data
+                  };
+                }
+              },
+              minimumResultsForSearch: Infinity
+            });
+
 
     });
 

@@ -43,7 +43,7 @@
 
                     <div class="form-group col-lg-3" id="empiddiv">
                         <label>Employee No.</label>
-                        <input type="text" name="emp_no" value="" id='emp_id' disabled required>
+                        <input type="text" name="emp_id" value="" id='emp_id' disabled required>
                     </div>
 
                     <div class="form-group col-lg-3" id="usernamediv">
@@ -60,6 +60,9 @@
                         <label>User Group</label>
                         <select class="form-control" name="user_group" id="userGroup" style='width:160px' required>
                             <option value="">--SELECT GROUP--</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+
                         </select>
                     </div>
 
@@ -102,16 +105,16 @@
 
 $(document).ready(function () {
   $('#userGroup').select2({
-    ajax:{
-      url:"/AMS/index.php/admin/UserData/getUserGroup",
-      dataType:"json",
-      delay:300,
-      processResults:function(data){
-        return {
-            results:data
-        };
-      }
-    },
+    // ajax:{
+    //   url:"/AMS/index.php/admin/UserData/getUserGroup",
+    //   dataType:"json",
+    //   delay:300,
+    //   processResults:function(data){
+    //     return {
+    //         results:data
+    //     };
+    //   }
+    // },
     minimumResultsForSearch: Infinity
   });
 
@@ -120,8 +123,11 @@ $(document).ready(function () {
     dataType:"json",
     type:"POST",
     success:function(data){
-      console.log(data[0]['emp_id']);
-      var emp = parseInt(data[0]['emp_id']);
+      if(data[0]){
+        var emp = parseInt(data[0]['emp_id']);
+      }else{
+        var emp = 0;
+      }
       $('#emp_id').val(emp + 1);
     }
   });

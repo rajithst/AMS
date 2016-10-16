@@ -37,14 +37,28 @@ class Migration_Asset_register extends CI_Migration {
 					'constraint'  => '100',
 				),
 
-				'CIA'         => array(
+				'confidentiality' => array(
+					'type'       => 'INT',
+					'constraint' => '10',
+				),
+
+				'integrity' => array(
+					'type'       => 'INT',
+					'constraint' => '10',
+				),
+				'availability' => array(
+					'type'       => 'INT',
+					'constraint' => '10',
+				),
+
+				'asset_custodian' => array(
 					'type'       => 'VARCHAR',
-					'constraint' => '100',
+					'constraint' => '10',
 				),
 
 				'asset_owner' => array(
 					'type'       => 'VARCHAR',
-					'constraint' => '100',
+					'constraint' => '10',
 				),
 
 				'asset_serial_number' => array(
@@ -92,7 +106,7 @@ class Migration_Asset_register extends CI_Migration {
 					'constraint'     => '30',
 				),
 
-				'deprecialtion_rate' => array(
+				'depreciation_rate' => array(
 					'type'              => 'DECIMAL',
 					'constraint'        => '30',
 				),
@@ -124,6 +138,11 @@ class Migration_Asset_register extends CI_Migration {
 
 			));
 		$this->dbforge->add_key('id', TRUE);
+		$this->dbforge->add_field('CONSTRAINT FOREIGN KEY (asset_category) REFERENCES Asset_category(cat_id)');
+		$this->dbforge->add_field('CONSTRAINT FOREIGN KEY (sub_category) REFERENCES Asset_sub_category(sub_cat_id)');
+		$this->dbforge->add_field('CONSTRAINT FOREIGN KEY (asset_custodian) REFERENCES Employee(emp_id)');
+		$this->dbforge->add_field('CONSTRAINT FOREIGN KEY (asset_owner) REFERENCES Employee(emp_id)');
+		//loation relationship
 		$this->dbforge->create_table('Asset_Details');
 	}
 

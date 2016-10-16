@@ -130,6 +130,7 @@ $(document).ready(function () {
     minimumResultsForSearch: Infinity
   });
 
+  //Get last user id and generate new emp id
   $.ajax({
     url:"/AMS/index.php/admin/UserData/getEmpId",
     dataType:"json",

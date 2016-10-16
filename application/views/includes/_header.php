@@ -18,3 +18,6 @@
 
 <!-- sweet alert Core CSS -->
 <link rel="stylesheet" href="<?php echo base_url('assets/css/sweetalert.css'); ?> ">
+
+<!-- jQuery UI CSS -->
+<link rel="stylesheet" href="<?php echo base_url('assets/css/jquery-ui.css'); ?> ">

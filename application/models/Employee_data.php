@@ -2,7 +2,7 @@
 
 class Employee_data extends MY_Model {
 
-	protected $_table_name  = 'employee';
+	protected $_table_name  = 'Employee';
 	protected $_primary_key = 'emp_id';
 	protected $return_type  = 'array';
 
@@ -22,13 +22,13 @@ class Employee_data extends MY_Model {
 	}
 
   function getAll(){
-      $sql = "SELECT emp_id AS id, emp_name AS text FROM employee";
+      $sql = "SELECT emp_id AS id, emp_name AS text FROM Employee";
       $query = $this->db->query($sql);
       return $query->result();
   }
 
   function getEmpId(){
-    $sql = "SELECT emp_id FROM employee ORDER BY emp_id DESC  LIMIT 1 ";
+    $sql = "SELECT emp_id FROM Employee ORDER BY emp_id DESC  LIMIT 1 ";
     $query = $this->db->query($sql);
     return $query->result();
   }

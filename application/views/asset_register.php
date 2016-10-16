@@ -159,21 +159,21 @@ if ($logedin != true){
                 <div class="row col-lg-8">
                   <div class="form-group col-lg-6">
                     <label>Location</label>
-                    <select class="form-control" name="asset_location">
-                      <option value="User1">Location 1</option>
-                      <option value="User2">Location 2</option>
-                      <option value="User3">Location 3</option>
-                      <option value="User4">Location 4</option>
+                    <select class="form-control" name="asset_location" id="asset_location">
+                      <option value="">-- select --</option>
+
                     </select>
                   </div>
 
                   <div class="form-group col-lg-6">
                     <label>Asset Classification</label>
                     <select class="form-control" name="asset_classification">
-                      <option value="User1">Class 1</option>
-                      <option value="User2">Class 2</option>
-                      <option value="User3">Class 3</option>
-                      <option value="User4">Class 4</option>
+                      <option value="">-- select --</option>
+                      <option value="Very Low">Very Low</option>
+                      <option value="Low">Low</option>
+                      <option value="Medium">Medium</option>
+                      <option value="High">High</option>
+                      <option value="Very High">Very High</option>
                     </select>
                   </div>
                 </div>
@@ -214,7 +214,7 @@ if ($logedin != true){
                 <div class="row col-lg-8">
                   <div class="form-group col-lg-5">
                     <label>Disposal Date</label>
-                    <input type="text" name="asset_disposal_date" value="" class="form-control">
+                    <input type="text" name="asset_disposal_date" id="disposal_date" value="" class="form-control">
                   </div>
                 </div>
                 <div class="row col-lg-8">
@@ -255,6 +255,9 @@ if ($logedin != true){
 <script>
 
 $(document).ready(function () {
+
+            // Disposal date datepicker set up
+            $('#disposal_date').datepicker();
 
             var cat_id ="";
 
@@ -301,7 +304,7 @@ $(document).ready(function () {
               minimumResultsForSearch: Infinity
             });
 
-            // Get user details
+            // Get Employee details to owners
             $('#user_id').select2({
               ajax:{
                 url:"/AMS/index.php/admin/UserData/getUser",
@@ -316,18 +319,34 @@ $(document).ready(function () {
               minimumResultsForSearch: Infinity
             });
 
-            $.ajax({
-              url:"/AMS/index.php/admin/UserData/getEmpId",
-              dataType:"json",
-              type:"POST",
-              success:function(data){
-                if(data[0]){
-                  var emp = parseInt(data[0]['emp_id']);
-                }else{
-                  var emp = 0;
+            // Get Employee details to custodian
+            $('#custodian_id').select2({
+              ajax:{
+                url:"/AMS/index.php/admin/UserData/getUser",
+                dataType:"json",
+                delay:300,
+                processResults:function(data){
+                  return {
+                      results:data
+                  };
                 }
-                $('#emp_id').val(emp + 1);
-              }
+              },
+              minimumResultsForSearch: Infinity
+            });
+
+            // Get location details
+            $('#asset_location').select2({
+              ajax:{
+                url:"/AMS/index.php/admin/MasterData/getLocation",
+                dataType:"json",
+                delay:300,
+                processResults:function(data){
+                  return {
+                      results:data
+                  };
+                }
+              },
+              minimumResultsForSearch: Infinity
             });
 
             //C.I.A value calculation

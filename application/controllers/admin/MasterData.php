@@ -7,9 +7,9 @@ class MasterData extends Admin_Controller {
 	public function __construct() {
 
 		parent::__construct();
-		$this->load->model('Master_data');
 		$this->load->model('Category_data');
 		$this->load->model('Sub_category_data');
+		$this->load->model('Location_data');
 	}
 
 	// Getters
@@ -25,6 +25,11 @@ class MasterData extends Admin_Controller {
 		$data = $this->Sub_category_data->getall();
 		echo json_encode($data);
 
+	}
+
+	function getLocation(){
+		$data = $this->Location_data->getAll();
+		echo json_encode($data);
 	}
 
 

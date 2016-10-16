@@ -10,13 +10,13 @@ class Migration_user extends CI_Migration
   {
     $this->dbforge->add_field(array(
 
-      'emp_id'=>array(
+      'id'=>array(
         'type'=> 'INT',
         'constraint' => 11,
         'auto_increment'=> TRUE
       ),
 
-      'user_name'=>array(
+      'email'=>array(
         'type'=> 'VARCHAR',
         'constraint'=> 150
       ),
@@ -33,15 +33,15 @@ class Migration_user extends CI_Migration
 
     ));
 
-    $this->dbforge->add_key('emp_id',TRUE);
+    $this->dbforge->add_key('id',TRUE);
     //$this->dbforge->add_field('CONSTRAINT FOREIGN KEY (category_id) REFERENCES Asset_category(cat_id)');
-    $this->dbforge->create_table('User');
+    $this->dbforge->create_table('user');
 
   }
 
   public function down()
   {
-    $this->dbforge->drop_table('User');
+    $this->dbforge->drop_table('user');
   }
 
 }

@@ -1,3 +1,16 @@
+<?php
+
+$logedin = $this->session->userdata('loggedin');
+
+if ($logedin != true){
+
+    redirect('admin/User/login');
+
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

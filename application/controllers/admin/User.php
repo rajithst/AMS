@@ -34,14 +34,17 @@ class User extends Admin_Controller {
 
             }else {
 
-                //$this->session->set_flashdata('error','That email password combination does not exist');
-                //redirect('admin/User/login','refresh'); ?>
+                echo "
+			<script>
+							setTimeout(function () {
+									swal({   title: \" Access Denied !\",   text: \"Your Username and Password Does not match!\",   type: \"warning\",   showCancelButton: false,   confirmButtonColor: \"#DD6B55\",   confirmButtonText: \"Ok, retry it!\",   closeOnConfirm: true });
+							}, 300);
+						</script>";
 
-                <script>
-                    swal("Here's a message!", "It's pretty, isn't it?")
+//                redirect('admin/User/login');
 
-                </script>
-            <?php }
+
+             }
 
         }
 

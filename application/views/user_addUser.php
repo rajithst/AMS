@@ -18,6 +18,22 @@ if ($logedin != true){
 <?php require_once 'includes/_header.php'; ?>
 
 <title>ANS | MASTER TABLE </title>
+
+
+    <script>
+
+
+        function activate(form, origin, target) {
+            if (origin.value.length > 0) {
+                document.forms[form][target].disabled = false;
+            } else {
+                document.forms[form][target].disabled = true;
+                document.forms[form][target].value = "";
+            }
+        }
+
+
+    </script>
 </head>
 
 <body style="height:100%">
@@ -49,7 +65,7 @@ if ($logedin != true){
 
             <!-- Form Begin -->
 
-            <form action="/AMS/index.php/admin/UserData/addUser" method="post">
+            <form action="<?php base_url();?>index.php/admin/UserData/addUser" method="post" name = "adduser">
 
                 <div class="row col-lg-12">
 
@@ -58,30 +74,32 @@ if ($logedin != true){
                         <input type="text" name="emp_id" value="" id='emp_id' disabled required>
                     </div>
 
-                    <div class="form-group col-lg-3" id="usernamediv">
-                        <label>User Name </label>
-                        <input type="text" name="emp_name" value="" required>
-                    </div>
-
-                    <div class="form-group col-lg-3" id="passworddiv">
-                        <label>Password</label>
-                        <input type="password" name="emp_pw" value="" required>
-                    </div>
-
                     <div class="form-group col-lg-3" >
                         <label>User Group</label>
-                        <select class="form-control" name="user_group" id="userGroup" style='width:160px' required>
-                            <option value="">--SELECT GROUP--</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
+                        <select class="form-control" name="user_group" onchange="activate('adduser', this, 'emp_name')" id="userGroup" style='width:160px' required >
+                            <option value="">--- SELECT ---</option>
+                            <option value="1">1 (Admin)</option>
+                            <option value="2">2 ()</option>
 
                         </select>
                     </div>
 
+                    <div class="form-group col-lg-3" id="usernamediv">
+                        <label>User Name </label>
+                        <input type="text" name="emp_name" oninput="activate('adduser', this, 'emp_pw')" required disabled >
+                    </div>
+
+                    <div class="form-group col-lg-3" id="passworddiv">
+                        <label>Password</label>
+                        <input type="password" name="emp_pw" oninput="activate('adduser', this, 'pwd_reset')" required disabled >
+                    </div>
+
+
+
                     <div class="row col-lg-12">
                       <div class="form-group col-lg-3">
                           <label>Password Reset</label>
-                          <input type="text" name="" disabled>
+                          <input type="text" name="pwd_reset" disabled>
                       </div>
                     </div>
 
@@ -115,7 +133,15 @@ if ($logedin != true){
 </html>
 <script>
 
+
+
+
+
 $(document).ready(function () {
+
+
+
+
   $('#userGroup').select2({
     // ajax:{
     //   url:"/AMS/index.php/admin/UserData/getUserGroup",

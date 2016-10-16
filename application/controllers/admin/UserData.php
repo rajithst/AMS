@@ -7,26 +7,26 @@ class UserData extends Admin_Controller {
 	public function __construct() {
 
 		parent::__construct();
-		$this->load->model('User_data');
+		$this->load->model('Employee_data');
 	}
 
 	function getUser() {
 
-		$data = $this->User_data->getall();
+		$data = $this->Employee_data->getall();
 		echo json_encode($data);
 
 	}
 
   function getEmpId() {
 
-		$data = $this->User_data->getEmpId();
+		$data = $this->Employee_data->getEmpId();
 		echo json_encode($data);
 
 	}
 
 	function addUser() {
 
-		$res = $this->User_data->add();
+		$res = $this->Employee_data->add();
 		if ($res) {
 			echo "
 			<script>

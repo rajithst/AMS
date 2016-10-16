@@ -68,15 +68,24 @@
                             <option value="">-- SELECT --</option>
                         </select>
                     </div>
-                    <div class="form-group col-lg-4">
-                        <label>C.I.A</label>
-                        <select class="form-control" name="asset_cia" >
-                            <option value="cat 1">Option 1</option>
-                            <option value="cat 2">Option 2</option>
-                            <option value="cat 3">Option 3</option>
-                            <option value="cat 4">Option 4</option>
 
-                        </select>
+                    <div class="row col-lg-8">
+                      <div class="form-group col-lg-3">
+                        <label>C</label>
+                        <input type="number" name="asset_dep_rate_C" value="" class="form-control " min="1" max="3" >
+                      </div>
+                      <div class="form-group col-lg-3">
+                        <label for="">I</label>
+                        <input type="number" name="asset_dep_rate_I" value="" class="form-control " min="1" max="3" >
+                      </div>
+                      <div class="form-group col-lg-3">
+                        <label for="">A</label>
+                        <input type="number" name="asset_dep_rate_A" value="" class="form-control " min="1" max="3" >
+                      </div>
+                      <div class="form-group col-lg-3">
+                        <label for="">Value</label>
+                        <input type="text" name="asset_dep_value" value="" disabled>
+                      </div>
                     </div>
                 </div>
 
@@ -284,7 +293,19 @@ $(document).ready(function () {
               minimumResultsForSearch: Infinity
             });
 
-
+            $.ajax({
+              url:"/AMS/index.php/admin/UserData/getEmpId",
+              dataType:"json",
+              type:"POST",
+              success:function(data){
+                if(data[0]){
+                  var emp = parseInt(data[0]['emp_id']);
+                }else{
+                  var emp = 0;
+                }
+                $('#emp_id').val(emp + 1);
+              }
+            });
     });
 
 

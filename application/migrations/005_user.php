@@ -16,7 +16,7 @@ class Migration_user extends CI_Migration
         'auto_increment'=> TRUE
       ),
 
-      'email'=>array(
+      'user_name'=>array(
         'type'=> 'VARCHAR',
         'constraint'=> 150
       ),

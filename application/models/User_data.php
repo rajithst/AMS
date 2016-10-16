@@ -2,19 +2,19 @@
 
 class User_data extends MY_Model {
 
-	protected $_table_name  = 'User';
+	protected $_table_name  = 'user';
 	protected $_primary_key = 'emp_id';
 	protected $return_type  = 'array';
 
 	function add() {
 		$user_data = array(
-			'emp_id'=> $this->input->post('emp_id'),
-      'user_name'=> $this->input->post('emp_name'),
-      'password'=> $this->input->post('emp_pw'),
-      'user_group'=> $this->input->post('user_group')
+			'id'=> $this->input->post('emp_id'),
+            'user_name'=> $this->input->post('emp_name'),
+            'password'=> $this->input->post('emp_pw'),
+            'user_group'=> $this->input->post('user_group')
 		);
 
-		$res = $this->db->insert('User', $user_data);
+		$res = $this->db->insert('user', $user_data);
 		if ($res) {
 			return true;
 		}

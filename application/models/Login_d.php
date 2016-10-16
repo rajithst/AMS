@@ -6,11 +6,11 @@ class Login_d extends MY_Model{
     protected $_order_by='id';
     public    $rules=array(
 
-        'email'=>array(
+        'username'=>array(
 
-            'field'=>'email',
-            'label'=>'Email',
-            'rules'=>'required|valid_email'
+            'field'=>'username',
+            /*'label'=>'username',*/
+            'rules'=>'required'
 
         ),
 
@@ -32,22 +32,26 @@ class Login_d extends MY_Model{
 
     function login(){
 
-                $email=$this->input->post('email');
+                $username=$this->input->post('username');
                 $password =$this->input->post('password');
 
-        $sql = "SELECT * FROM user WHERE email='$email' AND password ='$password'";
+        $sql = "SELECT * FROM user WHERE user_name='$username' AND password ='$password'";
         $query = $this->db->query($sql);
         $rows  = $query->num_rows();
 
 
         if ($rows == 1) {
 
-            $data = array(
-                'email' => $email,
-                'loggedin' => TRUE
-            );
 
-            $this->session->set_userdata($data);
+            $this->session->set_userdata(
+
+                array(
+                'username' => $username,
+                'loggedin' =>TRUE
+
+
+                ));
+
             return  true;
 
         }

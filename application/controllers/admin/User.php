@@ -34,9 +34,14 @@ class User extends Admin_Controller {
 
             }else {
 
-                $this->session->set_flashdata('error','That email password combination does not exist');
-                redirect('admin/User/login','refresh');
-            }
+                //$this->session->set_flashdata('error','That email password combination does not exist');
+                //redirect('admin/User/login','refresh'); ?>
+
+                <script>
+                    swal("Here's a message!", "It's pretty, isn't it?")
+
+                </script>
+            <?php }
 
         }
 

@@ -33,6 +33,8 @@
                 <li class="active">
                     <i class="fa fa-file"></i> Registration
                 </li>
+
+
             </ol>
 
             <!-- Form Begin -->

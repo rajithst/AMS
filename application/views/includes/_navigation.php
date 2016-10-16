@@ -1,4 +1,8 @@
 <!-- Navigation -->
+<?php
+$usergroup = $this->session->userdata('usergroup');
+
+?>
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -99,7 +103,7 @@
                 </li>
                 <li class="divider"></li>
                 <li>
-                    <a href="<?php echo base_url();?>index.php/admin/User/logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                    <a href="<?php echo base_url();?>index.php/admin/User/logout"><i class="fa fa-fw fa-power-off"></i> Log Out </a>
                 </li>
             </ul>
         </li>
@@ -114,6 +118,10 @@
             <li id="re_valuation">
                 <a href="/AMS/index.php/Asset/re_valuation"><i class="fa fa-fw fa-recycle "></i> Re-valuation</a>
             </li>
+
+            <?php
+
+            if ($usergroup != 1){ ?>
             <li id="user_management">
                 <a href="javascript:;" data-toggle="collapse" data-target="#user_table_list"><i class="fa fa-fw fa-arrows-v"></i> User Management <i class="fa fa-fw fa-caret-down"></i></a>
                 <ul id="user_table_list" class="collapse">
@@ -126,6 +134,8 @@
 
                 </ul>
             </li>
+
+            <?php } ?>
             <li id="asset_movement">
                 <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Asset Movement <i class="fa fa-fw fa-caret-down"></i></a>
                 <ul id="demo" class="collapse">
@@ -141,6 +151,11 @@
                 </ul>
             </li>
 
+            <?php
+
+                if ($usergroup != 1){ ?>
+
+
             <li id="master_table">
                 <a href="javascript:;" data-toggle="collapse" data-target="#master_table_list"><i class="fa fa-fw fa-arrows-v"></i> Master Table <i class="fa fa-fw fa-caret-down"></i></a>
                 <ul id="master_table_list" class="collapse">
@@ -153,6 +168,8 @@
 
                 </ul>
             </li>
+
+            <?php } ?>
 
             <li id="blank">
                 <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Blank Page</a>

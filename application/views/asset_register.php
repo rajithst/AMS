@@ -234,7 +234,6 @@ if ($logedin != true){
             </form>
 
 
-
         </div>
     </div>
     <!-- /.row -->

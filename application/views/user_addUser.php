@@ -65,7 +65,7 @@ if ($logedin != true){
 
             <!-- Form Begin -->
 
-            <form action="<?php base_url();?>index.php/admin/UserData/addUser" method="post" name = "adduser">
+            <form action="/AMS/index.php/admin/UserData/addUser" method="post" name = "adduser">
 
                 <div class="row col-lg-12">
 
@@ -78,8 +78,9 @@ if ($logedin != true){
                         <label>User Group</label>
                         <select class="form-control" name="user_group" onchange="activate('adduser', this, 'emp_name')" id="userGroup" style='width:160px' required >
                             <option value="">--- SELECT ---</option>
-                            <option value="1">1 (Admin)</option>
-                            <option value="2">2 ()</option>
+                            <option value="1">Auditor</option>
+                            <option value="2">Inputter</option>
+                            <option value="3">Authorizer</option>
 
                         </select>
                     </div>

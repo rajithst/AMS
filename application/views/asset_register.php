@@ -74,19 +74,19 @@
                     <div class="row col-lg-8">
                       <div class="form-group col-lg-3">
                         <label>C</label>
-                        <input type="number" name="asset_dep_rate_C" value="" class="form-control " min="1" max="3" >
+                        <input type="number" name="asset_dep_rate_C" id="asset_dep_rate_C" value="0" class="form-control " min="1" max="3" >
                       </div>
                       <div class="form-group col-lg-3">
                         <label for="">I</label>
-                        <input type="number" name="asset_dep_rate_I" value="" class="form-control " min="1" max="3" >
+                        <input type="number" name="asset_dep_rate_I" id="asset_dep_rate_I" value="0" class="form-control " min="1" max="3" >
                       </div>
                       <div class="form-group col-lg-3">
                         <label for="">A</label>
-                        <input type="number" name="asset_dep_rate_A" value="" class="form-control " min="1" max="3" >
+                        <input type="number" name="asset_dep_rate_A" id="asset_dep_rate_A" value="0" class="form-control " min="1" max="3" >
                       </div>
                       <div class="form-group col-lg-3">
                         <label for="">Value</label>
-                        <input type="text" name="asset_dep_value" value="" disabled>
+                        <input type="text" id="asset_dep_value" value="" disabled>
                       </div>
                     </div>
                 </div>
@@ -308,6 +308,24 @@ $(document).ready(function () {
                 $('#emp_id').val(emp + 1);
               }
             });
+
+            //C.I.A value calculation
+            $('#asset_dep_rate_C').change(function () {
+              cal_cia_average();
+            });
+            $('#asset_dep_rate_I').change(function () {
+              cal_cia_average();
+            });
+            $('#asset_dep_rate_A').change(function () {
+              cal_cia_average();
+            });
+            function cal_cia_average(){
+              var c = parseInt($('#asset_dep_rate_C').val());
+              var i = parseInt($('#asset_dep_rate_I').val());
+              var a = parseInt($('#asset_dep_rate_A').val());
+              var ave = (c + i + a)/3;
+              $('#asset_dep_value').val(ave);
+            }
     });
 
 

@@ -9,9 +9,10 @@ class Employee_data extends MY_Model {
 	function add() {
 		$user_data = array(
 			'id'=> $this->input->post('emp_id'),
+            'user_group'=> $this->input->post('user_group'),
             'user_name'=> $this->input->post('emp_name'),
             'password'=> $this->input->post('emp_pw'),
-            'user_group'=> $this->input->post('user_group')
+
 		);
 
 		$res = $this->db->insert('user', $user_data);

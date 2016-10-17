@@ -37,16 +37,24 @@ class Login_d extends MY_Model{
 
         $sql = "SELECT * FROM user WHERE user_name='$username' AND password ='$password'";
         $query = $this->db->query($sql);
+        $res  = $query->result();
         $rows  = $query->num_rows();
+
+       foreach ($res as $result){
+
+           $ugroup =$result->user_group;
+       }
 
 
         if ($rows == 1) {
+
 
 
             $this->session->set_userdata(
 
                 array(
                 'username' => $username,
+                    'usergroup' =>$ugroup,
                 'loggedin' =>TRUE
 
 

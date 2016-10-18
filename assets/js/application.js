@@ -1,3 +1,5 @@
+$.fn.modal.Constructor.prototype.enforceFocus = function () {};
+
 $(document).ready(function () {
   var pathname = window.location.pathname;
   var curr_file = pathname.split('/')[4] ;

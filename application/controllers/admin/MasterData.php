@@ -42,7 +42,7 @@ class MasterData extends Admin_Controller {
 			<script>
 							setTimeout(function () {
 									swal('Success', 'You entered new category', 'success');
-							}, 700);
+							}, 300);
 						</script>";
 			$this->load->view('master_categories');
 		}else{
@@ -50,7 +50,7 @@ class MasterData extends Admin_Controller {
 			<script>
 							setTimeout(function () {
 									swal('Sorry', 'Something went wrong.', 'error');
-							}, 700);
+							}, 300);
 						</script>";
 			$this->load->view('master_categories');
 		}
@@ -65,7 +65,7 @@ class MasterData extends Admin_Controller {
 			<script>
 							setTimeout(function () {
 								swal('Success', 'You entered new sub category', 'success';
-							}, 700);
+							}, 300);
 						</script>";
 			$this->load->view('master_categories');
 		}else{
@@ -73,11 +73,77 @@ class MasterData extends Admin_Controller {
 			<script>
 							setTimeout(function () {
 									swal('Sorry', 'Something went wrong.', 'error');
-							}, 700);
+							}, 300);
 						</script>";
 			$this->load->view('master_categories');
 		}
 
+	}
+
+	function addLocation() {
+
+		$res = $this->Location_data->add();
+		if ($res) {
+			echo "
+			<script>
+							setTimeout(function () {
+									swal('Success', 'You entered new location', 'success');
+							}, 300);
+						</script>";
+			$this->load->view('master_add_data');
+		}else{
+			echo "
+			<script>
+							setTimeout(function () {
+									swal('Sorry', 'Something went wrong.', 'error');
+							}, 300);
+						</script>";
+			$this->load->view('master_add_data');
+		}
+
+	}
+
+	//Removers
+	function removeCategory(){
+		$res = $this->Category_data->remove();
+		if ($res) {
+			echo "
+			<script>
+							setTimeout(function () {
+									swal('Success', 'You entered new location', 'success');
+							}, 300);
+						</script>";
+			$this->load->view('master_remove_data');
+		}else{
+			echo "
+			<script>
+							setTimeout(function () {
+									swal('Sorry', 'Something went wrong.', 'error');
+							}, 300);
+						</script>";
+			$this->load->view('master_remove_data');
+		}
+	}
+
+	function removeLocation(){
+		$res = $this->Location_data->remove();
+		if ($res) {
+			echo "
+			<script>
+							setTimeout(function () {
+									swal('Success', 'Removed location', 'success');
+							}, 300);
+						</script>";
+			$this->load->view('master_remove_data');
+		}else{
+			echo "
+			<script>
+							setTimeout(function () {
+									swal('Sorry', 'Something went wrong.', 'error');
+							}, 300);
+						</script>";
+			$this->load->view('master_remove_data');
+		}
 	}
 
 }

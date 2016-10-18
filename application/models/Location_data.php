@@ -2,23 +2,30 @@
 
 class Location_data extends MY_Model {
 
-	protected $_table_name  = 'asset_location';
+	protected $_table_name  = 'Asset_location';
 	protected $_primary_key = 'location_id';
 	protected $return_type  = 'array';
 
 	function add() {
-		// $user_data = array(
-		// 	'id'=> $this->input->post('emp_id'),
-    //         'user_name'=> $this->input->post('emp_name'),
-    //         'password'=> $this->input->post('emp_pw'),
-    //         'user_group'=> $this->input->post('user_group')
-		// );
-    //
-		// $res = $this->db->insert('user', $user_data);
-		// if ($res) {
-		// 	return true;
-		// }
+		$data = array(
+			'location'=> $this->input->post('assetLocation')
+		);
 
+		$res = $this->db->insert('Asset_location', $data);
+		if ($res) {
+			return true;
+		}
+
+	}
+
+	function remove(){
+		$id = $this->input->post('assetLocation');
+		$this->db->where('location_id',$id);
+		$this->db->delete('Asset_location');
+		$res = $this->db->affected_rows();
+		if($res){
+			return true;
+		}
 	}
 
   function getAll(){

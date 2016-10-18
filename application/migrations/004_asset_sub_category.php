@@ -29,7 +29,7 @@ class Migration_asset_sub_category extends CI_Migration
     ));
 
     $this->dbforge->add_key('sub_cat_id',TRUE);
-    $this->dbforge->add_field('CONSTRAINT FOREIGN KEY (category_id) REFERENCES Asset_category(cat_id)');
+    $this->dbforge->add_field('CONSTRAINT FOREIGN KEY (category_id) REFERENCES Asset_category(cat_id) ON DELETE CASCADE ON UPDATE CASCADE');
     $this->dbforge->create_table('Asset_sub_category');
 
   }

@@ -153,23 +153,23 @@ $usergroup = $this->session->userdata('usergroup');
 
             <?php
 
-                if ($usergroup != 1){ ?>
+              //  if ($usergroup != 1){ ?>
 
 
             <li id="master_table">
                 <a href="javascript:;" data-toggle="collapse" data-target="#master_table_list"><i class="fa fa-fw fa-arrows-v"></i> Master Table <i class="fa fa-fw fa-caret-down"></i></a>
                 <ul id="master_table_list" class="collapse">
                     <li id="add_category">
-                        <a href="/AMS/index.php/Master/categories">Add Categories</a>
+                        <a href="/AMS/index.php/Master/addData">Add Master Data</a>
                     </li>
                     <li id="add_location">
-                        <a href="/AMS/index.php/Master/locations">Add Locations</a>
+                        <a href="/AMS/index.php/Master/removeData">Remove Master Data</a>
                     </li>
 
                 </ul>
             </li>
 
-            <?php } ?>
+            <?php // } ?>
 
             <li id="blank">
                 <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Blank Page</a>

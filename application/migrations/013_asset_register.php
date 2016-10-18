@@ -138,10 +138,10 @@ class Migration_Asset_register extends CI_Migration {
 
 			));
 		$this->dbforge->add_key('id', TRUE);
-		$this->dbforge->add_field('CONSTRAINT FOREIGN KEY (asset_category) REFERENCES Asset_category(cat_id)');
-		$this->dbforge->add_field('CONSTRAINT FOREIGN KEY (sub_category) REFERENCES Asset_sub_category(sub_cat_id)');
-		$this->dbforge->add_field('CONSTRAINT FOREIGN KEY (asset_custodian) REFERENCES Employee(emp_id)');
-		$this->dbforge->add_field('CONSTRAINT FOREIGN KEY (asset_owner) REFERENCES Employee(emp_id)');
+		$this->dbforge->add_field('CONSTRAINT FOREIGN KEY (asset_category) REFERENCES Asset_category(cat_id) ON DELETE CASCADE ON UPDATE CASCADE');
+		$this->dbforge->add_field('CONSTRAINT FOREIGN KEY (sub_category) REFERENCES Asset_sub_category(sub_cat_id) ON DELETE CASCADE ON UPDATE CASCADE');
+		$this->dbforge->add_field('CONSTRAINT FOREIGN KEY (asset_custodian) REFERENCES Employee(emp_id) ON DELETE CASCADE ON UPDATE CASCADE');
+		$this->dbforge->add_field('CONSTRAINT FOREIGN KEY (asset_owner) REFERENCES Employee(emp_id) ON DELETE CASCADE ON UPDATE CASCADE');
 		//loation relationship
 		$this->dbforge->create_table('Asset_Details');
 	}

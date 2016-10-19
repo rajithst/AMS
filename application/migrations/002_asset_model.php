@@ -12,7 +12,7 @@ class Migration_asset_model extends CI_Migration {
 					'auto_increment' => TRUE
 				),
 
-				'model_name' => array(
+				'model' => array(
 					'type'          => 'VARCHAR',
 					'constraint'    => '100',
 				),

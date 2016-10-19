@@ -3,7 +3,7 @@
 /**
  * Migration class for create , asset category table
  */
-class Migration_asset_owner extends CI_Migration
+class Migration_asset_owners extends CI_Migration
 {
 
   public function up()
@@ -16,7 +16,7 @@ class Migration_asset_owner extends CI_Migration
         'auto_increment'=> TRUE
       ),
 
-      'owner_name'=>array(
+      'owner'=>array(
         'type'=> 'VARCHAR',
         'constraint'=> 150
       )
@@ -30,7 +30,7 @@ class Migration_asset_owner extends CI_Migration
 
   public function down()
   {
-    $this->dbforge->drop_table('Asser_owner');
+    $this->dbforge->drop_table('Asset_owner');
   }
 
 }

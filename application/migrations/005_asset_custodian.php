@@ -16,7 +16,7 @@ class Migration_asset_custodian extends CI_Migration
         'auto_increment'=> TRUE
       ),
 
-      'custodian_name'=>array(
+      'custodian'=>array(
         'type'=> 'VARCHAR',
         'constraint'=> 150
       )

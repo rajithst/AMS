@@ -98,14 +98,16 @@ if ($logedin != true){
 
             <hr class="col-lg-8">
 
-            <form action="/AMS/index.php/admin/MasterData/addModel" method="post">
+            <form action="/AMS/index.php/admin/MasterData/removeModel" method="post">
 
                 <div class="row col-lg-6">
-                    <div class="form-group" id="assetModel">
-                        <label>Add New Asset Model</label>
+                    <div class="form-group" id="asset_Model">
+                        <label>Remove Model</label>
                         <div class="row col-lg-12">
-                          <input type="text" name="assetModel" value="" required>
-                          <button type="submit" class="btn btn-primary" style="width:120px;margin-left:20px;">Add </button>
+                          <select class="form-control" name="assetModel" id="assetModel" style="width:200px" required>
+                              <option value="">-- SELECT --</option>
+                          </select>
+                          <button type="submit" class="btn btn-danger" style="width:120px; margin-left:20px;">Remove </button>
                       </div>
                     </div>
                 </div>
@@ -114,14 +116,16 @@ if ($logedin != true){
 
             <hr class="col-lg-8">
 
-            <form action="/AMS/index.php/admin/MasterData/addCustodian" method="post">
+            <form action="/AMS/index.php/admin/MasterData/removeCustodian" method="post">
 
                 <div class="row col-lg-6">
-                    <div class="form-group" id="assetCustodian">
-                        <label>Add New Asset Custodian</label>
+                    <div class="form-group" id="asset_Custodian">
+                        <label>Remove Custodian</label>
                         <div class="row col-lg-12">
-                          <input type="text" name="assetCustodian" value="" required>
-                          <button type="submit" class="btn btn-primary" style="width:120px;margin-left:20px;">Add </button>
+                          <select class="form-control" name="assetCustodian" id="assetCustodian" style="width:200px" required>
+                              <option value="">-- SELECT --</option>
+                          </select>
+                          <button type="submit" class="btn btn-danger" style="width:120px; margin-left:20px;">Remove </button>
                         </div>
                     </div>
                 </div>
@@ -130,15 +134,16 @@ if ($logedin != true){
 
             <hr class="col-lg-8">
 
-            <form action="/AMS/index.php/admin/MasterData/addOwner" method="post">
+            <form action="/AMS/index.php/admin/MasterData/removeOwner" method="post">
 
                 <div class="row col-lg-6">
-                    <div class="form-group" id="assetOwner">
-                        <label>Add New Asset Owner</label>
+                    <div class="form-group" id="asset_Owner">
+                        <label>Remove Owner</label>
                         <div class="row col-lg-12">
-                          <input type="text" name="assetOwner" value="" required>
-                          <button type="submit" class="btn btn-primary" style="width:120px;margin-left: 20px;">Add </button>
-
+                          <select class="form-control" name="assetOwner" id="assetOwner" style="width:200px" required>
+                            <option value="">-- SELECT --</option>
+                          </select>
+                          <button type="submit" class="btn btn-danger" style="width:120px; margin-left:20px;">Remove </button>
                         </div>
                     </div>
                 </div>
@@ -166,14 +171,16 @@ if ($logedin != true){
 
             <hr class="col-lg-8">
 
-            <form action="/AMS/index.php/admin/MasterData/addVendor" method="post">
+            <form action="/AMS/index.php/admin/MasterData/removeVendor" method="post">
 
                 <div class="row col-lg-6">
-                    <div class="form-group" id="assetVendor">
-                        <label>Add New Asset vendor</label>
+                    <div class="form-group" id="asset_Vendor">
+                        <label>Remove Vendor</label>
                         <div class="row col-lg-12">
-                          <input type="text" name="assetVendor" value="" required>
-                          <button type="submit" class="btn btn-primary" style="width:120px; margin-left:20px;">Add </button>
+                          <select class="form-control" name="assetVendor" id="assetVendor" style="width:200px" required>
+                              <option value="">-- SELECT --</option>
+                          </select>
+                          <button type="submit" class="btn btn-danger" style="width:120px; margin-left:20px;">Remove </button>
 
                         </div>
                     </div>
@@ -183,14 +190,16 @@ if ($logedin != true){
 
             <hr class="col-lg-8">
 
-            <form action="/AMS/index.php/admin/MasterData/addClassification" method="post">
+            <form action="/AMS/index.php/admin/MasterData/removeClassification" method="post">
 
                 <div class="row col-lg-6">
-                    <div class="form-group" id="assetClassification">
-                        <label>Add New Asset Classification</label>
+                    <div class="form-group" id="asset_Classification">
+                        <label>Remove Classification</label>
                         <div class="row col-lg-12">
-                          <input type="text" name="assetClassification" value="" required>
-                          <button type="submit" class="btn btn-primary" style="width:120px; margin-left:20px;">Add </button>
+                          <select class="form-control" name="assetClassification" id="assetClassification" style="width:200px" required>
+                              <option value="">-- SELECT --</option>
+                          </select>
+                          <button type="submit" class="btn btn-danger" style="width:120px; margin-left:20px;">Remove </button>
                         </div>
                     </div>
                 </div>
@@ -199,15 +208,17 @@ if ($logedin != true){
 
             <hr class="col-lg-8">
 
-            <form action="/AMS/index.php/admin/MasterData/addManufacture" method="post">
+            <form action="/AMS/index.php/admin/MasterData/removeManufacture" method="post">
 
                 <div class="row col-lg-6">
-                    <div class="form-group" id="assetManufacture">
-                        <label>Add New Asset Manufacture</label>
+                    <div class="form-group" id="asset_Manufacture">
+                        <label>Remove Manufacture</label>
 
                         <div class="row col-lg-12">
-                          <input type="text" name="assetManufacture" value="" required>
-                          <button type="submit" class="btn btn-primary" style="width:120px; margin-left:20px;">Add </button>
+                          <select class="form-control" name="assetManufacture" id="assetManufacture" style="width:200px" required>
+                              <option value="">-- SELECT --</option>
+                          </select>
+                          <button type="submit" class="btn btn-danger" style="width:120px; margin-left:20px;">Remove </button>
                         </div>
                     </div>
                 </div>
@@ -216,15 +227,16 @@ if ($logedin != true){
 
             <hr class="col-lg-8">
 
-            <form action="/AMS/index.php/admin/MasterData/addLifetime" method="post">
+            <form action="/AMS/index.php/admin/MasterData/removeLifetime" method="post">
 
                 <div class="row col-lg-6">
-                    <div class="form-group" id="assetLifetime">
-                        <label>Add New Asset Lifetime</label>
+                    <div class="form-group" id="asset_Lifetime">
+                        <label>Remove Lifetime</label>
                         <div class="row col-lg-12">
-                          <input type="text" name="assetLifetime" value="" required>
-                          <button type="submit" class="btn btn-primary" style="width:120px; margin-left:20px;">Add </button>
-
+                          <select class="form-control" name="assetLifetime" id="assetLifetime" style="width:200px" required>
+                              <option value="">-- SELECT --</option>
+                          </select>
+                          <button type="submit" class="btn btn-danger" style="width:120px; margin-left:20px;">Remove </button>
                         </div>
                     </div>
                 </div>
@@ -306,6 +318,7 @@ $(document).ready(function () {
     cat_id = $('#assetcat').val();
     $('#assetSubcat').prop('disabled',false);
     $('#assetSubcat').val('');
+    $('#sub_cat').prop('selectedIndex',0);
   });
 
   //Get sub CATEGORY details
@@ -333,6 +346,105 @@ $(document).ready(function () {
   $('#assetLocation').select2({
     ajax:{
       url:"/AMS/index.php/admin/MasterData/getLocation",
+      dataType:"json",
+      delay:300,
+      processResults:function(data){
+        return {
+            results:data
+        };
+      }
+    },
+    //minimumResultsForSearch: Infinity
+  });
+
+  $('#assetModel').select2({
+    ajax:{
+      url:"/AMS/index.php/admin/MasterData/getModel",
+      dataType:"json",
+      delay:300,
+      processResults:function(data){
+        return {
+            results:data
+        };
+      }
+    },
+    //minimumResultsForSearch: Infinity
+  });
+
+  $('#assetCustodian').select2({
+    ajax:{
+      url:"/AMS/index.php/admin/MasterData/getCustodian",
+      dataType:"json",
+      delay:300,
+      processResults:function(data){
+        return {
+            results:data
+        };
+      }
+    },
+    //minimumResultsForSearch: Infinity
+  });
+
+
+  $('#assetOwner').select2({
+    ajax:{
+      url:"/AMS/index.php/admin/MasterData/getOwner",
+      dataType:"json",
+      delay:300,
+      processResults:function(data){
+        return {
+            results:data
+        };
+      }
+    },
+    //minimumResultsForSearch: Infinity
+  });
+
+  $('#assetVendor').select2({
+    ajax:{
+      url:"/AMS/index.php/admin/MasterData/getVendor",
+      dataType:"json",
+      delay:300,
+      processResults:function(data){
+        return {
+            results:data
+        };
+      }
+    },
+    //minimumResultsForSearch: Infinity
+  });
+
+  $('#assetClassification').select2({
+    ajax:{
+      url:"/AMS/index.php/admin/MasterData/getClassification",
+      dataType:"json",
+      delay:300,
+      processResults:function(data){
+        return {
+            results:data
+        };
+      }
+    },
+    //minimumResultsForSearch: Infinity
+  });
+
+  $('#assetManufacture').select2({
+    ajax:{
+      url:"/AMS/index.php/admin/MasterData/getManufacture",
+      dataType:"json",
+      delay:300,
+      processResults:function(data){
+        return {
+            results:data
+        };
+      }
+    },
+    //minimumResultsForSearch: Infinity
+  });
+
+  $('#assetLifetime').select2({
+    ajax:{
+      url:"/AMS/index.php/admin/MasterData/getLifetime",
       dataType:"json",
       delay:300,
       processResults:function(data){

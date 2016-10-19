@@ -28,13 +28,13 @@ class Migration_Asset_register extends CI_Migration {
 				),
 
 				'asset_category' => array(
-					'type'          => 'VARCHAR',
-					'constraint'    => '100',
+					'type'          => 'INT',
+					'constraint'    => '11',
 				),
 
 				'sub_category' => array(
-					'type'        => 'VARCHAR',
-					'constraint'  => '100',
+					'type'        => 'INT',
+					'constraint'  => '11',
 				),
 
 				'confidentiality' => array(
@@ -52,13 +52,13 @@ class Migration_Asset_register extends CI_Migration {
 				),
 
 				'asset_custodian' => array(
-					'type'       => 'VARCHAR',
-					'constraint' => '10',
+					'type'       => 'INT',
+					'constraint' => '11',
 				),
 
 				'asset_owner' => array(
-					'type'       => 'VARCHAR',
-					'constraint' => '10',
+					'type'       => 'INT',
+					'constraint' => '11',
 				),
 
 				'asset_serial_number' => array(
@@ -138,10 +138,10 @@ class Migration_Asset_register extends CI_Migration {
 
 			));
 		$this->dbforge->add_key('id', TRUE);
-		$this->dbforge->add_field('CONSTRAINT FOREIGN KEY (asset_category) REFERENCES Asset_category(cat_id) ON DELETE CASCADE ON UPDATE CASCADE');
-		$this->dbforge->add_field('CONSTRAINT FOREIGN KEY (sub_category) REFERENCES Asset_sub_category(sub_cat_id) ON DELETE CASCADE ON UPDATE CASCADE');
-		$this->dbforge->add_field('CONSTRAINT FOREIGN KEY (asset_custodian) REFERENCES Employee(emp_id) ON DELETE CASCADE ON UPDATE CASCADE');
-		$this->dbforge->add_field('CONSTRAINT FOREIGN KEY (asset_owner) REFERENCES Employee(emp_id) ON DELETE CASCADE ON UPDATE CASCADE');
+		$this->dbforge->add_field('CONSTRAINT FOREIGN KEY (asset_category) REFERENCES Asset_category(cat_id)');
+		$this->dbforge->add_field('CONSTRAINT FOREIGN KEY (sub_category) REFERENCES Asset_sub_category(sub_cat_id)');
+		$this->dbforge->add_field('CONSTRAINT FOREIGN KEY (asset_custodian) REFERENCES Asset_custodian(custodian_id)');
+		$this->dbforge->add_field('CONSTRAINT FOREIGN KEY (asset_owner) REFERENCES Asset_owner(owner_id)');
 		//loation relationship
 		$this->dbforge->create_table('Asset_Details');
 	}

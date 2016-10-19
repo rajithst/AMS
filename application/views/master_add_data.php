@@ -215,7 +215,7 @@ if ($logedin != true){
                     <div class="form-group" id="assetLifetime">
                         <label>Add New Asset Lifetime</label>
                         <div class="row col-lg-12">
-                          <input type="text" name="assetLifetime" value="" required>
+                          <input type="number" name="assetLifetime" value="" style="width:190px;" placeholder="Use number of months" min='1' required>
                           <button type="submit" class="btn btn-primary" style="width:120px; margin-left:20px;">Add </button>
 
                         </div>

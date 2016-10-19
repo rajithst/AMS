@@ -17,7 +17,7 @@ class Migration_asset_lifetimeperiod extends CI_Migration
       ),
 
       'lifetime'=>array(
-        'type'=>'VARCHAR',
+        'type'=>'INT',
         'constraint'=>100,
 
       )

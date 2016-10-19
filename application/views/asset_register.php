@@ -280,6 +280,7 @@ $(document).ready(function () {
               cat_id = $('#assetcat').val();
               $('#sub_cat').prop('disabled',false);
               $('#sub_cat').val('');
+              $('#sub_cat').prop('selectedIndex',0);
             });
 
             //Get sub CATEGORY details

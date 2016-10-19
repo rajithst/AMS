@@ -1,13 +1,9 @@
 <?php
 
-$logedin = $this->session->userdata('loggedin');
-
-if ($logedin != true){
-
-    redirect('admin/User/login');
-
-}
-
+  $logedin = $this->session->userdata('loggedin');
+  if ($logedin != true){
+      redirect('admin/User/login');
+  } 
 
 ?>
 <!DOCTYPE html>
@@ -232,7 +228,7 @@ if ($logedin != true){
                     <div class="form-group" id="assetWarranty">
                         <label>Add New Asset Warranty</label>
                         <div class="row col-lg-12">
-                            <input type="text" name="assetWarranty" value="" required>
+                            <input type="number" name="assetWarranty" value="" style="width:190px;" placeholder='Use number of month'  min="1" required>
                             <button type="submit" class="btn btn-primary" style="width:120px; margin-left:20px;">Add </button>
                         </div>
                     </div>

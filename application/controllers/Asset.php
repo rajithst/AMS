@@ -12,6 +12,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       $this->load->view('asset_register');
     }
 
+    public function authorize(){
+
+      $this->load->view('asset_authorize_list');
+    }
+
     public function re_valuation()
     {
         $this->load->view('asset_re-valuation');

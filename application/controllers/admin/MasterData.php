@@ -17,6 +17,7 @@ class MasterData extends Admin_Controller {
 		$this->load->model('Classification_data');
 		$this->load->model('Manufacture_data');
 		$this->load->model('Lifetime_data');
+		$this->load->model('Warranty_data');
 
 
 	}
@@ -69,6 +70,11 @@ class MasterData extends Admin_Controller {
 
 	function getLifetime(){
 		$data = $this->Lifetime_data->getAll();
+		echo json_encode($data);
+	}
+
+	function getWarranty(){
+		$data = $this->Warranty_data->getAll();
 		echo json_encode($data);
 	}
 
@@ -305,6 +311,29 @@ class MasterData extends Admin_Controller {
 
 	}
 
+	function addWarranty() {
+
+		$res = $this->Warranty_data->add();
+		if ($res) {
+			echo "
+			<script>
+							setTimeout(function () {
+									swal('Success', 'You entered new Warranty Time Data', 'success');
+							}, 300);
+						</script>";
+			$this->load->view('master_add_data');
+		}else{
+			echo "
+			<script>
+							setTimeout(function () {
+									swal('Sorry', 'Something went wrong.', 'error');
+							}, 300);
+						</script>";
+			$this->load->view('master_add_data');
+		}
+
+	}
+
 
 
 	//Removers -----------------------------------------------------------------
@@ -517,5 +546,27 @@ class MasterData extends Admin_Controller {
 			$this->load->view('master_remove_data');
 		}
 	}
+
+	function removeWarranty(){
+		$res = $this->Warranty_data->remove();
+		if ($res) {
+			echo "
+			<script>
+							setTimeout(function () {
+									swal('Success', 'Removed Warranty Time data', 'success');
+							}, 300);
+						</script>";
+			$this->load->view('master_remove_data');
+		}else{
+			echo "
+			<script>
+							setTimeout(function () {
+									swal('Sorry', 'Something went wrong.', 'error');
+							}, 300);
+						</script>";
+			$this->load->view('master_remove_data');
+		}
+	}
+
 
 }

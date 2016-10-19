@@ -54,31 +54,31 @@ if ($logedin != true){
             <!-- Form Begin -->
             <form action="/AMS/index.php/admin/Assetdata/register" method="post">
                 <div class="row col-lg-8">
-                    <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xm-6">
+                    <div class="form-group form-group-sm col-lg-4 col-md-4 col-sm-4 col-xm-6">
                         <label>Date</label>
                         <input type="text" name="date" id='date' value="" class="form-control" disabled>
                     </div>
 
-                    <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xm-6">
+                    <div class="form-group form-group-sm col-lg-4 col-md-4 col-sm-4 col-xm-6">
                         <label>PABC Serial Number</label>
                         <input type="text" name="pabc_serial" value="" class="form-control">
                     </div>
 
-                    <div class="form-group col-lg-4 col-md-4 col-sm-4 ">
+                    <div class="form-group form-group-sm col-lg-4 col-md-4 col-sm-4 ">
                         <label>Reference Number</label>
                         <input type="text" name="reference_num" value="" class="form-control">
                     </div>
                 </div>
                 <hr class="col-lg-8">
                 <div class="row col-lg-8">
-                    <div class="form-group col-lg-4" id="assetcatdiv">
+                    <div class="form-group form-group-sm col-lg-4" id="assetcatdiv">
                         <label>Asset Category</label>
                         <select class="form-control" name="asset_category" id="assetcat" >
                             <option value="">--SELECT CATEGORY--</option>
 
                         </select>
                     </div>
-                    <div class="form-group col-lg-4">
+                    <div class="form-group form-group-sm col-lg-4">
                         <label>Asset Sub Category</label>
                         <select class="form-control" name="sub_category" id='sub_cat' disabled>
                             <option value="">-- SELECT --</option>
@@ -86,78 +86,85 @@ if ($logedin != true){
                     </div>
 
                     <div class="row col-lg-8">
-                      <div class="form-group col-lg-3">
+                      <div class="form-group form-group-sm col-lg-3">
                         <label>C</label>
-                        <input type="number" name="asset_dep_rate_C" id="asset_dep_rate_C" value="0" class="form-control " min="1" max="3" >
+                        <input type="number" name="asset_rate_C" id="asset_dep_rate_C" value="0" class="form-control " min="1" max="3" >
                       </div>
-                      <div class="form-group col-lg-3">
+                      <div class="form-group form-group-sm col-lg-3">
                         <label for="">I</label>
-                        <input type="number" name="asset_dep_rate_I" id="asset_dep_rate_I" value="0" class="form-control " min="1" max="3" >
+                        <input type="number" name="asset_rate_I" id="asset_dep_rate_I" value="0" class="form-control " min="1" max="3" >
                       </div>
-                      <div class="form-group col-lg-3">
+                      <div class="form-group form-group-sm col-lg-3">
                         <label for="">A</label>
-                        <input type="number" name="asset_dep_rate_A" id="asset_dep_rate_A" value="0" class="form-control " min="1" max="3" >
+                        <input type="number" name="asset_rate_A" id="asset_dep_rate_A" value="0" class="form-control " min="1" max="3" >
                       </div>
-                      <div class="form-group col-lg-2">
+                      <div class="form-group form-group-sm col-lg-2">
                         <label for="">Value</label>
-                        <input type="text" id="asset_dep_value" value="" disabled>
+                        <input type="text" id="asset_dep_value" value="" style='width:100px;' disabled>
                       </div>
                     </div>
                 </div>
 
                 <div class="row col-lg-8">
-                  <div class="form-group col-lg-6">
+                  <div class="form-group form-group-sm col-lg-6">
                     <label>Asset Custodian</label>
-                    <select class="form-control" name="asset_custodian" id="custodian_id">
+                    <select class="form-control" name="assetCustodian" id="assetCustodian">
                       <option value="">-- Select --</option>
 
                     </select>
                   </div>
-                  <div class="form-group col-lg-6">
+                  <div class="form-group form-group-sm col-lg-6">
                     <label>Asset Owner</label>
-                    <select class="form-control" name="asset_owner" id="user_id">
+                    <select class="form-control" name="assetOwner" id="assetOwner">
                       <option value="">-- Select --</option>
 
                     </select>
                   </div>
                 </div>
                 <div class="row col-lg-8">
-                  <div class="form-group col-lg-6">
+                  <div class="form-group form-group-sm col-lg-6">
                     <label>Asset Serial Number</label>
-                    <input type="text" name="asset_serial" value="" id="serial" class="form-control">
+                    <input type="text" name="assetSerial" value="" id="assetSerial" class="form-control">
                   </div>
                 </div>
                 <div class="row col-lg-8">
-                  <div class="form-group col-lg-8">
+                  <div class="form-group form-group-sm col-lg-8">
                     <label>Description</label>
-                    <input type="text" name="asset_description" value="" class="form-control">
+                    <textarea name="assetDescription" class="form-control" rows="8" cols="40"></textarea>
+
                   </div>
 
                 </div>
                 <div class="row col-lg-8">
-                  <div class="form-group col-lg-4">
+                  <div class="form-group form-group-sm col-lg-4">
                     <label>OS Version</label>
                     <input type="text" name="asset_os_version" value="" class="form-control">
                   </div>
-                  <div class="form-group col-lg-2">
+                  <div class="form-group form-group-sm col-lg-2">
                     <label>Color</label>
                     <input type="color" name="asset_color" value="" class="form-control">
                   </div>
                 </div>
                 <div class="row col-lg-8">
-                  <div class="form-group col-lg-5">
+                  <div class="form-group form-group-sm  col-lg-5">
                     <label>Asset Model</label>
-                    <input type="text" name="asset_model" value="" class="form-control">
+                    <select class="form-control" name="assetModel" id="assetModel" required>
+                      <option value="">-- Select --</option>
+
+                    </select>
+
                   </div>
-                  <div class="form-group col-lg-5">
+                  <div class="form-group form-group-sm col-lg-5">
                     <label>Manufacture</label>
-                    <input type="text" name="asset_manufacture" value="" class="form-control">
+                    <select class="form-control" name="assetManufacture" id="assetManufacture" required>
+                      <option value="">-- Select --</option>
+                    </select>
                   </div>
 
                 </div>
                 <hr class="col-lg-8">
                 <div class="row col-lg-8">
-                  <div class="form-group col-lg-6">
+                  <div class="form-group form-group-sm col-lg-6">
                     <label>Location</label>
                     <select class="form-control" name="asset_location" id="asset_location">
                       <option value="">-- select --</option>
@@ -165,67 +172,63 @@ if ($logedin != true){
                     </select>
                   </div>
 
-                  <div class="form-group col-lg-6">
+                  <div class="form-group form-group-sm col-lg-6">
                     <label>Asset Classification</label>
-                    <select class="form-control" name="asset_classification">
+                    <select class="form-control" name="assetClassification" id="assetClassification">
                       <option value="">-- select --</option>
-                      <option value="Very Low">Very Low</option>
-                      <option value="Low">Low</option>
-                      <option value="Medium">Medium</option>
-                      <option value="High">High</option>
-                      <option value="Very High">Very High</option>
                     </select>
                   </div>
                 </div>
                 <div class="row col-lg-8">
-                  <div class="form-group col-lg-4">
+                  <div class="form-group form-group-sm col-lg-4">
                     <label>Lifetime Period</label>
-                    <select class="form-control" name="asset_lifetime">
-                      <option value="User1">Time 1</option>
-                      <option value="User2">Time 2</option>
-                      <option value="User3">Time 3</option>
-                      <option value="User4">Time 4</option>
+                    <select class="form-control" name="assetLifetime" id="assetLifetime" required>
+                      <option value="">-- select --</option>
                     </select>
                   </div>
-                  <div class="form-group col-lg-4">
+
+                  <div class="form-group form-group-sm col-lg-4">
                     <label>Depreciation Rate</label>
                     <input type="number" name="asset_dep_rate" value="" class="form-control" min="0" step="any">
                   </div>
-                  <div class="form-group col-lg-4">
+
+                  <div class="form-group form-group-sm col-lg-4">
                     <label>Warranty Period</label>
-                    <select class="form-control" name="asset_warranty">
-                      <option value="User1">Time 1</option>
-                      <option value="User2">Time 2</option>
-                      <option value="User3">Time 3</option>
-                      <option value="User4">Time 4</option>
+                    <select class="form-control" name="assetWarranty" id="assetWarranty" required>
+                      <option value="">-- select --</option>
                     </select>
                   </div>
                 </div>
                 <div class="row col-lg-8">
-                  <div class="form-group col-lg-5">
+
+                  <div class="form-group form-group-sm col-lg-5">
                     <label>Maintain Status</label>
                     <input type="text" name="asset_maintain_status" value="" class="form-control">
                   </div>
-                  <div class="form-group col-lg-5">
+
+                  <div class="form-group form-group-sm col-lg-5">
                     <label>Vendor</label>
-                    <input type="text" name="asset_vender" value="" class="form-control">
+                    <select class="form-control" name="assetVendor" id="assetVendor" required>
+                      <option value="">-- select --</option>
+                    </select>
+
                   </div>
                 </div>
                 <div class="row col-lg-8">
-                  <div class="form-group col-lg-5">
+                  <div class="form-group form-group-sm col-lg-5">
                     <label>Disposal Date</label>
                     <input type="text" name="asset_disposal_date" id="disposal_date" value="" class="form-control">
                   </div>
                 </div>
                 <div class="row col-lg-8">
-                  <div class="form-group col-lg-12">
+                  <div class="form-group form-group-sm col-lg-12">
                     <label>Remark</label>
                     <input type="text" name="asset_remark" value="" class="form-control">
                   </div>
                 </div>
 
                 <div class="row col-lg-8">
-                  <div class="form-group col-lg-offset-8">
+                  <div class="form-group form-group-sm col-lg-offset-8">
                     <button type="submit" class="btn btn-primary" style="width:100px">Submit</button>
                     <button type="reset" class="btn btn-primary" style="width:100px">Reset</button>
                   </div>
@@ -305,9 +308,9 @@ $(document).ready(function () {
             });
 
             // Get Employee details to owners
-            $('#user_id').select2({
+            $('#assetOwner').select2({
               ajax:{
-                url:"/AMS/index.php/admin/UserData/getUser",
+                url:"/AMS/index.php/admin/MasterData/getOwner",
                 dataType:"json",
                 delay:300,
                 processResults:function(data){
@@ -316,13 +319,13 @@ $(document).ready(function () {
                   };
                 }
               },
-              minimumResultsForSearch: Infinity
+              //minimumResultsForSearch: Infinity
             });
 
             // Get Employee details to custodian
-            $('#custodian_id').select2({
+            $('#assetCustodian').select2({
               ajax:{
-                url:"/AMS/index.php/admin/UserData/getUser",
+                url:"/AMS/index.php/admin/MasterData/getCustodian",
                 dataType:"json",
                 delay:300,
                 processResults:function(data){
@@ -331,7 +334,7 @@ $(document).ready(function () {
                   };
                 }
               },
-              minimumResultsForSearch: Infinity
+              //minimumResultsForSearch: Infinity
             });
 
             // Get location details
@@ -348,6 +351,92 @@ $(document).ready(function () {
               },
               minimumResultsForSearch: Infinity
             });
+
+            $('#assetModel').select2({
+              ajax:{
+                url:"/AMS/index.php/admin/MasterData/getModel",
+                dataType:"json",
+                delay:300,
+                processResults:function(data){
+                  return {
+                      results:data
+                  };
+                }
+              },
+              //minimumResultsForSearch: Infinity
+            });
+
+            $('#assetVendor').select2({
+              ajax:{
+                url:"/AMS/index.php/admin/MasterData/getVendor",
+                dataType:"json",
+                delay:300,
+                processResults:function(data){
+                  return {
+                      results:data
+                  };
+                }
+              },
+              //minimumResultsForSearch: Infinity
+            });
+
+            $('#assetClassification').select2({
+              ajax:{
+                url:"/AMS/index.php/admin/MasterData/getClassification",
+                dataType:"json",
+                delay:300,
+                processResults:function(data){
+                  return {
+                      results:data
+                  };
+                }
+              },
+              minimumResultsForSearch: Infinity
+            });
+
+            $('#assetManufacture').select2({
+              ajax:{
+                url:"/AMS/index.php/admin/MasterData/getManufacture",
+                dataType:"json",
+                delay:300,
+                processResults:function(data){
+                  return {
+                      results:data
+                  };
+                }
+              },
+              //minimumResultsForSearch: Infinity
+            });
+
+            $('#assetLifetime').select2({
+              ajax:{
+                url:"/AMS/index.php/admin/MasterData/getLifetime",
+                dataType:"json",
+                delay:300,
+                processResults:function(data){
+                  return {
+                      results:data
+                  };
+                }
+              },
+              //minimumResultsForSearch: Infinity
+            });
+
+            $('#assetWarranty').select2({
+              ajax:{
+                url:"/AMS/index.php/admin/MasterData/getWarranty",
+                dataType:"json",
+                delay:300,
+                processResults:function(data){
+                  return {
+                      results:data
+                  };
+                }
+              },
+              //minimumResultsForSearch: Infinity
+            });
+
+
 
             //C.I.A value calculation
             $('#asset_dep_rate_C').change(function () {
@@ -369,6 +458,16 @@ $(document).ready(function () {
               var ave = (c + i + a)/3;
               $('#asset_dep_value').val(ave.toFixed(2));
             }
+
+            // Generate PABC Number
+            $('#assetcat').change(function(){
+              var valc = this.val();
+              var prefix = split(val,0,2);
+            });
+
+            $('#sub_cat').change(function(){
+              var vals = this.val();
+            });
     });
 
 

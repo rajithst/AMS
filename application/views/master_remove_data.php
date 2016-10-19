@@ -52,7 +52,7 @@ if ($logedin != true){
             <form action="/AMS/index.php/admin/MasterData/removeCategory" method="post">
 
                 <div class="row col-lg-6">
-                    <div class="form-group col-lg-6" id="assetcatdiv">
+                    <div class="form-group form-group-sm col-lg-6" id="assetcatdiv">
                         <label>Select Category</label>
                         <select class="form-control" name="asset_category" id="assetCategory" required>
                             <option value="">--SELECT CATEGORY--</option>
@@ -60,7 +60,7 @@ if ($logedin != true){
 
                     </div>
                     <div class="form-group col-lg-8">
-                      <button type="submit" class="btn btn-danger" style="width:120px">Remove</button>
+                      <button type="submit" class="btn btn-danger btn-sm" style="width:120px">Remove</button>
                     </div>
                 </div>
 
@@ -88,7 +88,7 @@ if ($logedin != true){
 
                 <div class="row col-lg-8">
                   <div class="form-group ">
-                    <button type="submit" class="btn btn-danger" style="width:100px">Remove</button>
+                    <button type="submit" class="btn btn-danger btn-sm" style="width:100px">Remove</button>
                   </div>
 
                 </div>
@@ -97,90 +97,91 @@ if ($logedin != true){
             </form>
 
             <hr class="col-lg-8">
+            <div class="row">
 
             <form action="/AMS/index.php/admin/MasterData/removeModel" method="post">
 
-                <div class="row col-lg-6">
+                <div class="col-lg-6">
                     <div class="form-group" id="asset_Model">
                         <label>Remove Model</label>
                         <div class="row col-lg-12">
                           <select class="form-control" name="assetModel" id="assetModel" style="width:200px" required>
                               <option value="">-- SELECT --</option>
                           </select>
-                          <button type="submit" class="btn btn-danger" style="width:120px; margin-left:20px;">Remove </button>
+                          <button type="submit" class="btn btn-danger btn-sm" style="width:120px; margin-left:20px;">Remove </button>
                       </div>
                     </div>
                 </div>
 
             </form>
 
-            <hr class="col-lg-8">
-
             <form action="/AMS/index.php/admin/MasterData/removeCustodian" method="post">
 
-                <div class="row col-lg-6">
+                <div class="col-lg-6">
                     <div class="form-group" id="asset_Custodian">
                         <label>Remove Custodian</label>
                         <div class="row col-lg-12">
                           <select class="form-control" name="assetCustodian" id="assetCustodian" style="width:200px" required>
                               <option value="">-- SELECT --</option>
                           </select>
-                          <button type="submit" class="btn btn-danger" style="width:120px; margin-left:20px;">Remove </button>
+                          <button type="submit" class="btn btn-danger btn-sm" style="width:120px; margin-left:20px;">Remove </button>
                         </div>
                     </div>
                 </div>
 
             </form>
+          </div>
 
             <hr class="col-lg-8">
-
+            <div class="row">
             <form action="/AMS/index.php/admin/MasterData/removeOwner" method="post">
 
-                <div class="row col-lg-6">
+                <div class=" col-lg-6">
                     <div class="form-group" id="asset_Owner">
                         <label>Remove Owner</label>
                         <div class="row col-lg-12">
                           <select class="form-control" name="assetOwner" id="assetOwner" style="width:200px" required>
                             <option value="">-- SELECT --</option>
                           </select>
-                          <button type="submit" class="btn btn-danger" style="width:120px; margin-left:20px;">Remove </button>
+                          <button type="submit" class="btn btn-danger btn-sm" style="width:120px; margin-left:20px;">Remove </button>
                         </div>
                     </div>
                 </div>
 
             </form>
 
-            <hr class="col-lg-8">
+
 
             <form action="/AMS/index.php/admin/MasterData/removeLocation" method="post">
 
-                <div class="row col-lg-6">
+                <div class="col-lg-6">
                     <div class="form-group" id="asset_Location">
                         <label>Remove location</label>
                         <div class="row col-lg-12">
                           <select class="form-control" name="assetLocation" id="assetLocation" style="width:200px" required>
                               <option value="">-- SELECT --</option>
                           </select>
-                          <button type="submit" class="btn btn-danger" style="width:120px; margin-left:20px;">Remove </button>
+                          <button type="submit" class="btn btn-danger btn-sm" style="width:120px; margin-left:20px;">Remove </button>
 
                         </div>
                     </div>
                 </div>
 
             </form>
-
+            </div>
             <hr class="col-lg-8">
 
+            <div class="row">
             <form action="/AMS/index.php/admin/MasterData/removeVendor" method="post">
 
-                <div class="row col-lg-6">
+                <div class=" col-lg-6">
                     <div class="form-group" id="asset_Vendor">
                         <label>Remove Vendor</label>
                         <div class="row col-lg-12">
                           <select class="form-control" name="assetVendor" id="assetVendor" style="width:200px" required>
                               <option value="">-- SELECT --</option>
                           </select>
-                          <button type="submit" class="btn btn-danger" style="width:120px; margin-left:20px;">Remove </button>
+                          <button type="submit" class="btn btn-danger btn-sm" style="width:120px; margin-left:20px;">Remove </button>
 
                         </div>
                     </div>
@@ -188,29 +189,30 @@ if ($logedin != true){
 
             </form>
 
-            <hr class="col-lg-8">
+
 
             <form action="/AMS/index.php/admin/MasterData/removeClassification" method="post">
 
-                <div class="row col-lg-6">
+                <div class=" col-lg-6">
                     <div class="form-group" id="asset_Classification">
                         <label>Remove Classification</label>
                         <div class="row col-lg-12">
                           <select class="form-control" name="assetClassification" id="assetClassification" style="width:200px" required>
                               <option value="">-- SELECT --</option>
                           </select>
-                          <button type="submit" class="btn btn-danger" style="width:120px; margin-left:20px;">Remove </button>
+                          <button type="submit" class="btn btn-danger btn-sm" style="width:120px; margin-left:20px;">Remove </button>
                         </div>
                     </div>
                 </div>
 
             </form>
+          </div>
 
             <hr class="col-lg-8">
-
+            <div class="row">
             <form action="/AMS/index.php/admin/MasterData/removeManufacture" method="post">
 
-                <div class="row col-lg-6">
+                <div class=" col-lg-6">
                     <div class="form-group" id="asset_Manufacture">
                         <label>Remove Manufacture</label>
 
@@ -218,41 +220,44 @@ if ($logedin != true){
                           <select class="form-control" name="assetManufacture" id="assetManufacture" style="width:200px" required>
                               <option value="">-- SELECT --</option>
                           </select>
-                          <button type="submit" class="btn btn-danger" style="width:120px; margin-left:20px;">Remove </button>
+                          <button type="submit" class="btn btn-danger btn-sm" style="width:120px; margin-left:20px;">Remove </button>
                         </div>
                     </div>
                 </div>
 
             </form>
 
-            <hr class="col-lg-8">
 
             <form action="/AMS/index.php/admin/MasterData/removeLifetime" method="post">
 
-                <div class="row col-lg-6">
+                <div class=" col-lg-6">
                     <div class="form-group" id="asset_Lifetime">
                         <label>Remove Lifetime</label>
                         <div class="row col-lg-12">
                           <select class="form-control" name="assetLifetime" id="assetLifetime" style="width:200px" required>
                               <option value="">-- SELECT --</option>
                           </select>
-                          <button type="submit" class="btn btn-danger" style="width:120px; margin-left:20px;">Remove </button>
+                          <button type="submit" class="btn btn-danger btn-sm" style="width:120px; margin-left:20px;">Remove </button>
                         </div>
                     </div>
                 </div>
 
             </form>
+          </div>
 
             <hr class="col-lg-8">
 
-            <form action="/AMS/index.php/admin/MasterData/addWarranty" method="post">
+            <form action="/AMS/index.php/admin/MasterData/removeWarranty" method="post">
 
                 <div class="row col-lg-6">
-                    <div class="form-group" id="assetWarranty">
-                        <label>Add New Asset Warranty</label>
+                    <div class="form-group" id="asset_Warranty">
+                        <label>Remove Warranty Period</label>
                         <div class="row col-lg-12">
-                            <input type="text" name="assetWarranty" value="" required>
-                            <button type="submit" class="btn btn-primary" style="width:120px; margin-left:20px;">Add </button>
+                          <select class="form-control" name="assetWarranty" id="assetWarranty" style="width:200px" required>
+                              <option value="">-- SELECT --</option>
+                          </select>
+                          <button type="submit" class="btn btn-danger btn-sm" style="width:120px; margin-left:20px;">Remove </button>
+
                         </div>
                     </div>
                 </div>
@@ -445,6 +450,20 @@ $(document).ready(function () {
   $('#assetLifetime').select2({
     ajax:{
       url:"/AMS/index.php/admin/MasterData/getLifetime",
+      dataType:"json",
+      delay:300,
+      processResults:function(data){
+        return {
+            results:data
+        };
+      }
+    },
+    //minimumResultsForSearch: Infinity
+  });
+
+  $('#assetWarranty').select2({
+    ajax:{
+      url:"/AMS/index.php/admin/MasterData/getWarranty",
       dataType:"json",
       delay:300,
       processResults:function(data){

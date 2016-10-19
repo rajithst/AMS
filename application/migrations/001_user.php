@@ -37,6 +37,13 @@ class Migration_user extends CI_Migration
     //$this->dbforge->add_field('CONSTRAINT FOREIGN KEY (category_id) REFERENCES Asset_category(cat_id)');
     $this->dbforge->create_table('user');
 
+    $data = array('user_name' => "AMS_Admin",
+            'password' => "root",
+            'user_group' => "999")
+          );
+    $this->db->insert('user', $data);
+
+
   }
 
   public function down()

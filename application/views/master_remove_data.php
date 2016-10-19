@@ -154,7 +154,7 @@ if ($logedin != true){
                         <label>Remove location</label>
                         <div class="row col-lg-12">
                           <select class="form-control" name="assetLocation" id="assetLocation" style="width:200px" required>
-                              <option value="">--SELECT CATEGORY--</option>
+                              <option value="">-- SELECT --</option>
                           </select>
                           <button type="submit" class="btn btn-danger" style="width:120px; margin-left:20px;">Remove </button>
 

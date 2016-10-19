@@ -110,7 +110,7 @@ class MasterData extends Admin_Controller {
 			echo "
 			<script>
 							setTimeout(function () {
-									swal('Success', 'You entered new location', 'success');
+									swal('Success', ' Removed Category', 'success');
 							}, 300);
 						</script>";
 			$this->load->view('master_remove_data');

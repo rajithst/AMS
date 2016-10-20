@@ -41,22 +41,19 @@ class Login_d extends MY_Model{
         $rows  = $query->num_rows();
 
        foreach ($res as $result){
-
-           $ugroup =$result->user_group;
+           $u_id = $result->id;
+           $ugroup = $result->user_group;
        }
 
 
         if ($rows == 1) {
-
-
-
             $this->session->set_userdata(
 
                 array(
-                'username' => $username,
-                    'usergroup' =>$ugroup,
-                'loggedin' =>TRUE
-
+                'username'  => $username,
+                'usergroup' => $ugroup,
+                'loggedin'  => TRUE,
+                'user_id'   => $u_id
 
                 ));
 

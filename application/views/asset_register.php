@@ -1,16 +1,12 @@
 <?php
 
-$logedin = $this->session->userdata('loggedin');
-
-if ($logedin != true){
-
-    redirect('admin/User/login');
-
-}
-
+  $logedin = $this->session->userdata('loggedin');
+  $user_id = $this->session->userdata('user_id');
+  if ($logedin != true){
+      redirect('admin/User/login');
+  }
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -88,19 +84,20 @@ if ($logedin != true){
                     <div class="row col-lg-8">
                       <div class="form-group form-group-sm col-lg-3">
                         <label>C</label>
-                        <input type="number" name="asset_rate_C" id="asset_dep_rate_C" value="0" class="form-control " min="1" max="3" >
+                        <input type="number" name="asset_rate_C" id="asset_dep_rate_C" value="0" class="form-control " min="0" max="3" >
                       </div>
                       <div class="form-group form-group-sm col-lg-3">
                         <label for="">I</label>
-                        <input type="number" name="asset_rate_I" id="asset_dep_rate_I" value="0" class="form-control " min="1" max="3" >
+                        <input type="number" name="asset_rate_I" id="asset_dep_rate_I" value="0" class="form-control " min="0" max="3" >
                       </div>
                       <div class="form-group form-group-sm col-lg-3">
                         <label for="">A</label>
-                        <input type="number" name="asset_rate_A" id="asset_dep_rate_A" value="0" class="form-control " min="1" max="3" >
+                        <input type="number" name="asset_rate_A" id="asset_dep_rate_A" value="0" class="form-control " min="0" max="3" >
                       </div>
                       <div class="form-group form-group-sm col-lg-2">
                         <label for="">Value</label>
-                        <input type="text" id="asset_dep_value" value="" style='width:100px;' disabled>
+                        <input type="text" id="asset_dep_value" style='width:100px;' disabled>
+                        <input type="hidden" name="asset_value" id="asset_value">
                       </div>
                     </div>
                 </div>
@@ -226,11 +223,11 @@ if ($logedin != true){
                     <input type="text" name="asset_remark" value="" class="form-control">
                   </div>
                 </div>
-
+                <input type="hidden" name="user_id" value="<?php echo $user_id?>">
                 <div class="row col-lg-8">
                   <div class="form-group form-group-sm col-lg-offset-8">
-                    <button type="submit" class="btn btn-primary" style="width:100px">Submit</button>
-                    <button type="reset" class="btn btn-primary" style="width:100px">Reset</button>
+                    <button type="submit" class="btn btn-success" style="width:100px">Submit</button>
+                    <button type="reset" class="btn btn-danger" style="width:100px">Reset</button>
                   </div>
 
                 </div>
@@ -259,7 +256,7 @@ if ($logedin != true){
 $(document).ready(function () {
 
             // Disposal date datepicker set up
-            $('#disposal_date').datepicker();
+            $('#disposal_date').datepicker({dateFormat : 'yy-mm-dd'});
 
             var cat_id ="";
 
@@ -456,7 +453,9 @@ $(document).ready(function () {
               var i = parseInt($('#asset_dep_rate_I').val());
               var a = parseInt($('#asset_dep_rate_A').val());
               var ave = (c + i + a)/3;
-              $('#asset_dep_value').val(ave.toFixed(2));
+              var value = ave.toFixed(3);
+              $('#asset_dep_value').val(value);
+              $('#asset_value').val(value);
             }
 
             // Generate PABC Number

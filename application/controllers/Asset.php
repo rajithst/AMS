@@ -7,14 +7,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
    */
   class Asset extends Frontend_Controller{
 
-    public function register(){
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('Asset_data');
+    }
 
+    public function register(){
       $this->load->view('asset_register');
     }
 
     public function authorize(){
-
-      $this->load->view('asset_authorize_list');
+      $data['list'] =  $this->Asset_data->getUnauthorizedData();
+      $this->load->view('asset_authorize_list',$data);
     }
 
     public function re_valuation()

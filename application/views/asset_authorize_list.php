@@ -69,13 +69,25 @@ if ($logedin != true){
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="odd gradeX">
+                                  <?php
+                                    foreach ($list->result() as $row) {
+                                      echo $row->{'PABC_serial_number'};
+                                      echo "<tr class=\"odd gradeX\">
+                                          <td>".$row->{'PABC_serial_number'}."</td>
+                                          <td>".$row->{'asset_category'}."</td>
+                                          <td class=\"center\">".$row->{'cia_value'}."</td>
+                                          <td>".$row->{'location'}."</td>
+                                          <td>".$row->{'dataInputer'}."</td>
+                                      </tr>";
+                                    }
+                                   ?>
+                                    <!-- <tr class="odd gradeX">
                                         <td>Trident</td>
                                         <td>Internet Explorer 4.0</td>
                                         <td>Win 95+</td>
                                         <td class="center">4</td>
                                         <td class="center">X</td>
-                                    </tr>
+                                    </tr> -->
 
                                 </tbody>
                             </table>

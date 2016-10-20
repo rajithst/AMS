@@ -13,6 +13,11 @@ class User extends CI_Controller{
     $this->load->view('user_addUser');
   }
 
+  public function setting()
+  {
+    $this->load->view('user_setting');
+  }
+
 }
 
  ?>

@@ -66,28 +66,22 @@ if ($logedin != true){
                                         <th>C.I.A. Value</th>
                                         <th>Location</th>
                                         <th>Data Inputer</th>
+                                        <th>Detail</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                   <?php
                                     foreach ($list->result() as $row) {
-                                      echo $row->{'PABC_serial_number'};
                                       echo "<tr class=\"odd gradeX\">
                                           <td>".$row->{'PABC_serial_number'}."</td>
-                                          <td>".$row->{'asset_category'}."</td>
+                                          <td>".$row->{'category'}."</td>
                                           <td class=\"center\">".$row->{'cia_value'}."</td>
                                           <td>".$row->{'location'}."</td>
-                                          <td>".$row->{'dataInputer'}."</td>
+                                          <td>".$row->{'user_name'}."</td>
+                                          <td><button type=\"submit\" name=".$row->{'asset_id'}." value=".$row->{'asset_id'}." id=\"btn_view\"  class=\"btn btn-primary btn-xs\" style=\"width:100px\">View</button></td>
                                       </tr>";
                                     }
                                    ?>
-                                    <!-- <tr class="odd gradeX">
-                                        <td>Trident</td>
-                                        <td>Internet Explorer 4.0</td>
-                                        <td>Win 95+</td>
-                                        <td class="center">4</td>
-                                        <td class="center">X</td>
-                                    </tr> -->
 
                                 </tbody>
                             </table>
@@ -102,7 +96,9 @@ if ($logedin != true){
         </div>
     </div>
     <!-- /.row -->
+    <div class="newOne">
 
+    </div>
 </div>
 <!-- /.container-fluid -->
 
@@ -125,5 +121,19 @@ $(document).ready(function() {
       $('#authorizing_list').DataTable({
           responsive: true
       });
-  });
+
+      $('#authorizing_list').on('click','#btn_view',function(){
+        console.log(this.value);
+        $.ajax({
+          type: "POST",
+          url:"/AMS/index.php/Asset/authorizeItem",
+          data:{asset_id:this.value},
+          success:function(result){
+            $('.newOne').html(result);
+          }
+        });
+      });
+
+
+});
 </script>

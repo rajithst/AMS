@@ -71,12 +71,12 @@ if ($logedin != true){
 
                     <div class="form-group col-lg-3" id="empiddiv">
                         <label>Employee No.</label>
-                        <input type="text" name="emp_id" value="" id='emp_id' disabled required>
+                        <input type="text" name="user_id" value="" id='user_id' disabled required>
                     </div>
 
                     <div class="form-group col-lg-3" >
                         <label>User Group</label>
-                        <select class="form-control" name="user_group" onchange="activate('adduser', this, 'emp_name')" id="userGroup" style='width:160px' required >
+                        <select class="form-control" name="user_group" onchange="activate('adduser', this, 'user_name')" id="userGroup" style='width:160px' required >
                             <option value="">--- SELECT ---</option>
                             <option value="1">Auditor</option>
                             <option value="2">Inputter</option>
@@ -87,12 +87,12 @@ if ($logedin != true){
 
                     <div class="form-group col-lg-3" id="usernamediv">
                         <label>User Name </label>
-                        <input type="text" name="emp_name" oninput="activate('adduser', this, 'emp_pw')" required disabled >
+                        <input type="text" name="user_name" oninput="activate('adduser', this, 'user_password')" required disabled >
                     </div>
 
                     <div class="form-group col-lg-3" id="passworddiv">
                         <label>Password</label>
-                        <input type="password" name="emp_pw" oninput="activate('adduser', this, 'pwd_reset')" required disabled >
+                        <input type="password" name="user_password" oninput="activate('adduser', this, 'pwd_reset')" required disabled >
                     </div>
 
 
@@ -106,7 +106,7 @@ if ($logedin != true){
 
                     <div class="row col-lg-12">
                       <div class="form-group ">
-                        <button type="submit" class="btn btn-primary" style="width:100px">Add User</button>
+                        <button type="submit" class="btn btn-primary" style="width:100px; float:right">Add User</button>
                       </div>
                     </div>
 
@@ -144,33 +144,32 @@ $(document).ready(function () {
 
 
   $('#userGroup').select2({
-    // ajax:{
-    //   url:"/AMS/index.php/admin/UserData/getUserGroup",
-    //   dataType:"json",
-    //   delay:300,
-    //   processResults:function(data){
-    //     return {
-    //         results:data
-    //     };
-    //   }
-    // },
     minimumResultsForSearch: Infinity
   });
 
   //Get last user id and generate new emp id
   $.ajax({
-    url:"/AMS/index.php/admin/UserData/getEmpId",
+    url:"/AMS/index.php/admin/UserData/getUserId",
     dataType:"json",
     type:"POST",
     success:function(data){
       if(data[0]){
-        var emp = parseInt(data[0]['emp_id']);
+        var emp = parseInt(data[0]['id']);
       }else{
         var emp = 0;
       }
-      $('#emp_id').val(emp + 1);
+
+      var number = pad( emp+1 , 4);
+
+      $('#user_id').val(number);
     }
   });
+
+  function pad(num, size) {
+    var s = num+"";
+    while (s.length < size) s = "0" + s;
+    return s;
+}
 
 });
 

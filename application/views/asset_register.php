@@ -57,7 +57,8 @@
 
                     <div class="form-group form-group-sm col-lg-4 col-md-4 col-sm-4 col-xm-6">
                         <label>PABC Serial Number</label>
-                        <input type="text" name="pabc_serial" value="" class="form-control">
+                        <input type="text" id="pabc_serial1" class="form-control" disabled>
+                        <input type="hidden" name="pabc_serial" id="pabc_serial" required>
                     </div>
 
                     <div class="form-group form-group-sm col-lg-4 col-md-4 col-sm-4 ">
@@ -69,14 +70,14 @@
                 <div class="row col-lg-8">
                     <div class="form-group form-group-sm col-lg-4" id="assetcatdiv">
                         <label>Asset Category</label>
-                        <select class="form-control" name="asset_category" id="assetcat" >
+                        <select class="form-control" name="asset_category" id="assetcat" required>
                             <option value="">--SELECT CATEGORY--</option>
 
                         </select>
                     </div>
                     <div class="form-group form-group-sm col-lg-4">
                         <label>Asset Sub Category</label>
-                        <select class="form-control" name="sub_category" id='sub_cat' disabled>
+                        <select class="form-control" name="sub_category" id='sub_cat' disabled required>
                             <option value="">-- SELECT --</option>
                         </select>
                     </div>
@@ -97,7 +98,7 @@
                       <div class="form-group form-group-sm col-lg-2">
                         <label for="">Value</label>
                         <input type="text" id="asset_dep_value" style='width:100px;' disabled>
-                        <input type="hidden" name="asset_value" id="asset_value">
+                        <input type="hidden" name="asset_value" id="asset_value" required>
                       </div>
                     </div>
                 </div>
@@ -112,7 +113,7 @@
                   </div>
                   <div class="form-group form-group-sm col-lg-6">
                     <label>Asset Owner</label>
-                    <select class="form-control" name="assetOwner" id="assetOwner">
+                    <select class="form-control" name="assetOwner" id="assetOwner" required>
                       <option value="">-- Select --</option>
 
                     </select>
@@ -227,7 +228,7 @@
                 <div class="row col-lg-8">
                   <div class="form-group form-group-sm col-lg-offset-8">
                     <button type="submit" class="btn btn-success" style="width:100px">Submit</button>
-                    <button type="reset" class="btn btn-danger" style="width:100px">Reset</button>
+                    <button onclick="location.reload();" class="btn btn-danger" style="width:100px">Reset</button>
                   </div>
 
                 </div>
@@ -460,13 +461,25 @@ $(document).ready(function () {
 
             // Generate PABC Number
             $('#assetcat').change(function(){
-              var valc = this.val();
-              var prefix = split(val,0,2);
+              $('#pabc_serial').val("");
+              $('#pabc_serial1').val("");
+            });
+            $('#sub_cat').change(function(){
+              generatePABC();
             });
 
-            $('#sub_cat').change(function(){
-              var vals = this.val();
-            });
+            function generatePABC(){
+              var valc = $('#assetcat option:selected').text();
+              var prefix1 = valc.substring(0,2).toUpperCase();
+
+              var vals = $('#sub_cat option:selected').text();
+              var prefix2 = vals.substring(0,3).toUpperCase();
+
+              var prefix = prefix1+"-"+prefix2+"-"+Math.floor((Math.random()*10000));
+              $('#pabc_serial').val(prefix);
+              $('#pabc_serial1').val(prefix);
+
+            }
     });
 
 

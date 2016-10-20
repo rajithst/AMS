@@ -6,13 +6,13 @@ class Migration_Asset_register extends CI_Migration {
 	public function up() {
 		$this->dbforge->add_field(array(
 
-				'id'              => array(
+				'asset_id'              => array(
 					'type'           => 'INT',
 					'constraint'     => 11,
 					'unsigned'       => TRUE,
 					'auto_increment' => TRUE
 				),
-				'date'        => array(
+				'added_date'        => array(
 					'type'       => 'VARCHAR',
 					'constraint' => '100',
 				),
@@ -32,7 +32,7 @@ class Migration_Asset_register extends CI_Migration {
 					'constraint'    => '11',
 				),
 
-				'sub_category' => array(
+				'asset_sub_category' => array(
 					'type'        => 'INT',
 					'constraint'  => '11',
 				),
@@ -75,13 +75,13 @@ class Migration_Asset_register extends CI_Migration {
 				),
 
 				'asset_model' => array(
-					'type'       => 'VARCHAR',
-					'constraint' => '100',
+					'type'       => 'INT',
+					'constraint' => '11',
 				),
 
-				'manufacturer' => array(
-					'type'        => 'VARCHAR',
-					'constraint'  => '100',
+				'asset_manufacturer' => array(
+					'type'        => 'INT',
+					'constraint'  => '11',
 				),
 
 				'OS_version'  => array(
@@ -89,14 +89,14 @@ class Migration_Asset_register extends CI_Migration {
 					'constraint' => '100',
 				),
 
-				'location'    => array(
-					'type'       => 'VARCHAR',
-					'constraint' => '100',
+				'asset_location'    => array(
+					'type'       => 'INT',
+					'constraint' => '11',
 				),
 
 				'asset_classification' => array(
-					'type'                => 'VARCHAR',
-					'constraint'          => '100',
+					'type'                => 'INT',
+					'constraint'          => '11',
 				),
 
 				'color'       => array(
@@ -105,8 +105,8 @@ class Migration_Asset_register extends CI_Migration {
 				),
 
 				'lifetime_period' => array(
-					'type'           => 'VARCHAR',
-					'constraint'     => '30',
+					'type'           => 'INT',
+					'constraint'     => '11',
 				),
 
 				'depreciation_rate' => array(
@@ -124,14 +124,14 @@ class Migration_Asset_register extends CI_Migration {
 					'constraint'     => '100',
 				),
 
-				'vendor'      => array(
-					'type'       => 'VARCHAR',
-					'constraint' => '100',
+				'asset_vendor'      => array(
+					'type'       => 'INT',
+					'constraint' => '11',
 				),
 
 				'disposal_date' => array(
 					'type'         => 'DATE',
-					
+
 				),
 
 				'remark'      => array(
@@ -141,7 +141,7 @@ class Migration_Asset_register extends CI_Migration {
 
 				'dataInputer'  => array(
 					'type'       => 'INT',
-					'constraint' => '100',
+					'constraint' => '11',
 				),
 
 				'authorize'      => array(

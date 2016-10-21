@@ -123,6 +123,7 @@ if ($logedin != true){
                                     </thead>
                                     <tbody>
                                       <?php
+                                      if(isset($list2)){
                                         foreach ($list2->result() as $row2) {
                                           echo "<tr>
                                               <td>".$row2->{'PABC_serial_number'}."</td>
@@ -131,6 +132,7 @@ if ($logedin != true){
                                               <td><button type=\"submit\" name=\"btn_view\" value=".$row->{'asset_id'}." id=\"btn_view\"  class=\"btn btn-success btn-xs\" style=\"\">View</button></td>
                                           </tr></form>";
                                         }
+                                      }
                                        ?>
                                     </tbody>
                                 </table>
@@ -165,18 +167,6 @@ if ($logedin != true){
               responsive: true,
               "order": [[ 1, "desc" ]]
           });
-
-          //$('#authorizing_list').on('click','#btn_view',function(){
-            // console.log(this.value);
-            // $.ajax({
-            //   type: "POST",
-            //   url:"/AMS/index.php/Asset/viewAsset",
-            //   data:{asset_id:this.value},
-            //   success:function(result){
-            //     $('.newOne').html(result);
-            //   }
-            // });
-          //});
 
         	var chart = new CanvasJS.Chart("chartContainer",
         	{

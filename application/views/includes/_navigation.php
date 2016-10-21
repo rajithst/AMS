@@ -199,13 +199,13 @@ switch ($usergroup) {
               <a href="<?PHP echo base_url('index.php') ?>"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
           </li>
 
-            <li id="user_view">
+            <!-- <li id="user_view">
                 <a href="/AMS/index.php/User/view"><i class="fa fa-fw fa-database"></i>User View</a>
             </li>
 
             <li id="report_view">
                 <a href="/AMS/index.php/User/view"><i class="fa fa-fw fa-database"></i>Report View</a>
-            </li>
+            </li> -->
 
           <?php
           }

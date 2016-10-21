@@ -80,7 +80,7 @@
     $(document).ready(function () {
         $('.forgot-password').click(function (e) {
             e.preventDefault();
-            swal("Please contac System Administrator!")
+            swal("Please contact System Administrator!")
         });
     });
 </script>

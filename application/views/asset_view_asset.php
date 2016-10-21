@@ -52,7 +52,7 @@ if ($logedin != true){
               foreach ($list->result() as $row) {
           ?>
             <!-- Form Begin -->
-            <form action="/AMS/index.php/admin/Assetdata/reValuation" method="post">
+            <!-- <form action="" method="post"> -->
                 <div class="row col-lg-8">
                     <div class="form-group form-group-sm col-lg-4 col-md-4 col-sm-4 col-xm-6">
                         <label>Date</label>
@@ -209,11 +209,11 @@ if ($logedin != true){
                   <div class="form-group form-group-sm col-lg-offset-8">
                     <input type="hidden" name='index' value="<?php echo $row->{'asset_id'}; ?>">
                     <!-- <button type="submit" name='submit' class="btn btn-success btn-sm" style="width:100px">Authorize</button> -->
-                    <button onclick="location.href = '<?PHP echo base_url('index.php') ?>'" class="btn btn-primary btn-sm" style="width:100px; float:right; ">Back</button>
+                    <button onclick="location.href ='<?PHP echo base_url();?>index.php'" class="btn btn-primary btn-sm" style="width:100px; float:right; ">Back</button>
                   </div>
 
                 </div>
-            </form>
+            <!-- </form> -->
 <?php }} ?>
 
       </div>
@@ -231,45 +231,6 @@ if ($logedin != true){
 
 <!-- Include footer  -->
 <?php require_once 'includes/_footer.php';?>
-
-<script>
-  $(document).ready(function(){
-
-    //Asset life time
-    $('#assetLifetime').select2({
-      ajax:{
-        url:"/AMS/index.php/admin/MasterData/getLifetime",
-        dataType:"json",
-        delay:300,
-        processResults:function(data){
-          return {
-              results:data
-          };
-        }
-      },
-      //minimumResultsForSearch: Infinity
-    });
-
-    //warranty perrion get
-    $('#assetWarranty').select2({
-      ajax:{
-        url:"/AMS/index.php/admin/MasterData/getWarranty",
-        dataType:"json",
-        delay:300,
-        processResults:function(data){
-          return {
-              results:data
-          };
-        }
-      },
-      //minimumResultsForSearch: Infinity
-    });
-
-    // Disposal date datepicker set up
-    $('#disposal_date').datepicker({dateFormat : 'yy-mm-dd'});
-
-  });
-</script>
 
 </body>
 

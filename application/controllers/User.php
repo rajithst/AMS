@@ -9,10 +9,7 @@ class User extends CI_Controller{
     $this->load->model('User_data');
   }
 
-  public function addUser()
-  {
-    $this->load->view('user_addUser');
-  }
+  
 
   public function setting()
   {

@@ -19,7 +19,7 @@ if ($logedin != true){
         <?php require_once 'includes/_header.php'; ?>
 
 </head>
-<title>ANS | ASSET DISPOSAL</title>
+<title>ANS | ASSET OWNER CHANGE</title>
 
 <body >
 
@@ -37,19 +37,19 @@ if ($logedin != true){
                     <div class="col-lg-12">
                         <h1 class="page-header">
                             Asset Management System
-                            <small>Asset Disposal</small>
+                            <small>Asset Owner Change</small>
                         </h1>
                         <ol class="breadcrumb">
                             <li>
                                 <i class="fa fa-dashboard"></i>  <a href="#">Asset Movements</a>
                             </li>
                             <li class="active">
-                                <i class="fa fa-file"></i> Disposal
+                                <i class="fa fa-file"></i> Owner Change
                             </li>
                         </ol>
 
                         <!-- Form Begin -->
-                        <form action="/AMS/index.php/admin/Assetdata/search_d" method="post">
+                        <form action="/AMS/index.php/admin/Assetdata/search_o" method="post">
 
                             <div class="row col-lg-12">
                                 <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xm-6">
@@ -66,7 +66,7 @@ if ($logedin != true){
 
                         foreach ($list->result() as $row) {
                         ?>
-                        <form action="/AMS/index.php/admin/Assetdata/disposal" method="post">
+                        <form action="/AMS/index.php/admin/Assetdata/ownerChange" method="post">
                             <div class="row col-lg-8">
                                 <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xm-6">
                                     <label>Date</label>
@@ -107,7 +107,10 @@ if ($logedin != true){
                             <div class="row col-lg-8">
                               <div class="form-group col-lg-4">
                                 <label>Asset Owner</label>
-                                <input type="text" name="asset_owner" value="<?php echo $row->{'owner'}; ?> " class="form-control" disabled>
+                                <select class="form-control" name="asset_owner" id="assetOwner" required>
+                                  <option value=""><?php echo $row->{'owner'}; ?> </option>
+
+                                </select>
                               </div>
                               <div class="form-group col-lg-4">
                                 <label>Asset Serial Number</label>
@@ -129,7 +132,7 @@ if ($logedin != true){
                             <div class="row col-lg-8">
                               <div class="form-group" style=" float:right">
                                 <input type="hidden" name="index" value="<?php echo $row->{'asset_id'}; ?>" >
-                                <button type="submit"  class="btn btn-warning" id="btn-submit" style="width:150px">Disposal</button>
+                                <button type="submit"  class="btn btn-warning" id="btn-submit" style="width:150px">Change</button>
                               </div>
 
                             </div>
@@ -155,26 +158,46 @@ if ($logedin != true){
     <!-- /#wrapper -->
 
     <?php require_once 'includes/_footer.php'; ?>
-<script>
 
-$('#btn-submit').on('click',function(e){
+<script>
+$(document).ready(function(){
+
+  // Get Employee details to owners
+  $('#assetOwner').select2({
+    ajax:{
+      url:"/AMS/index.php/admin/MasterData/getOwner",
+      dataType:"json",
+      delay:300,
+      processResults:function(data){
+        return {
+          results:data
+        };
+      }
+    },
+    //minimumResultsForSearch: Infinity
+  });
+
+
+  $('#btn-submit').on('click',function(e){
     e.preventDefault();
     var form = $(this).parents('form');
     swal({
-        title: "Are you sure?",
-        text: "You will not be able to recover this asset",
-        type: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#DD6B55",
-        confirmButtonText: "Yes, delete ",
-        closeOnConfirm: false
+      title: "Are you sure?",
+      text: "You want to update owner of this asset!",
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#DD6B55",
+      confirmButtonText: "Yes, update",
+      closeOnConfirm: false
     }, function(isConfirm){
-        if (isConfirm) form.submit();
+      if (isConfirm) form.submit();
     });
+  });
+
+
 });
 
-
-
 </script>
+
 </body>
 </html>

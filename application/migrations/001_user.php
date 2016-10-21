@@ -29,6 +29,11 @@ class Migration_user extends CI_Migration
       'user_group'=>array(
         'type'=> 'INT',
         'constraint'=> 11
+      ),
+
+      'join_date'=>array(
+        'type'=> 'DATE',
+        'constraint'=> 11
       )
 
     ));

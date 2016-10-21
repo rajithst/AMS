@@ -7,10 +7,12 @@ class User_data extends MY_Model {
 	protected $return_type  = 'array';
 
 	function add() {
+		$date       = date("Y/m/d");
 		$user_data = array(
       'user_group'=> $this->input->post('user_group'),
       'user_name'=> $this->input->post('user_name'),
       'password'=> $this->input->post('user_password'),
+			'join_date'=> $date,
 		);
 
 		$res = $this->db->insert('user', $user_data);
@@ -25,6 +27,11 @@ class User_data extends MY_Model {
       $query = $this->db->query($sql);
       return $query->result();
   }
+
+	function getAllUsers(){
+		$sql = "SELECT * FROM user ";
+		return $this->db->query($sql);
+	}
 
 	function getUser(){
 			$uid = $this->session->userdata('user_id');
@@ -58,5 +65,6 @@ class User_data extends MY_Model {
 			return false;
 		}
   }
+
 
 }

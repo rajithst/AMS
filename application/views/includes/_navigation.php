@@ -51,9 +51,6 @@ switch ($usergroup) {
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo strtoupper($this->session->userdata('username'));?> <b class="caret"></b></a>
             <ul class="dropdown-menu">
                 <li>
-                    <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
-                </li>
-                <li>
                     <a href="<?php echo base_url();?>index.php/User/setting"><i class="fa fa-fw fa-gear"></i> Settings</a>
                 </li>
                 <li class="divider"></li>
@@ -74,16 +71,20 @@ switch ($usergroup) {
 
           if($usergroup == 999){
           ?>
+            <li id="dashboard">
+                <a href="<?PHP echo base_url('index.php') ?>"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+            </li>
+
             <li id="asset_register">
-                <a href="/AMS/index.php/Asset/register"><i class="fa fa-fw fa-database"></i> Asset Registration</a>
+                <a href="<?php echo base_url();?>index.php/Asset/register"><i class="fa fa-fw fa-database"></i> Asset Registration</a>
             </li>
 
             <li id="asset_authorizer">
-                <a href="/AMS/index.php/Asset/authorize"><i class="fa fa-fw fa-database"></i> Asset Authorize</a>
+                <a href="<?php echo base_url();?>index.php/Asset/authorize"><i class="fa fa-fw fa-database"></i> Asset Authorize</a>
             </li>
 
             <li id="re_valuation">
-                <a href="/AMS/index.php/Asset/re_valuation"><i class="fa fa-fw fa-recycle "></i> Re-valuation</a>
+                <a href="<?php echo base_url();?>index.php/Asset/re_valuation"><i class="fa fa-fw fa-recycle "></i> Re-valuation</a>
             </li>
 
 
@@ -91,10 +92,10 @@ switch ($usergroup) {
                 <a href="javascript:;" data-toggle="collapse" data-target="#user_table_list"><i class="fa fa-fw fa-arrows-v"></i> User Management <i class="fa fa-fw fa-caret-down"></i></a>
                 <ul id="user_table_list" class="collapse">
                     <li id="add_user">
-                        <a href="/AMS/index.php/User/addUser">Add User</a>
+                        <a href="<?php echo base_url();?>index.php/admin/User/addUser">Add User</a>
                     </li>
                     <li id="edit_user">
-                        <a href="/AMS/index.php/User/editUser">Update User</a>
+                        <a href="<?php echo base_url();?>index.php/admin/User/management">Manage Users</a>
                     </li>
 
                 </ul>
@@ -104,13 +105,13 @@ switch ($usergroup) {
                 <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Asset Movement <i class="fa fa-fw fa-caret-down"></i></a>
                 <ul id="demo" class="collapse">
                     <li id="disposal">
-                        <a href="/AMS/index.php/Asset/disposal">Disposal</a>
+                        <a href="<?php echo base_url();?>index.php/Asset/disposal">Disposal</a>
                     </li>
                     <li id="loc_change">
-                        <a href="/AMS/index.php/Asset/location_change">Location Change</a>
+                        <a href="<?php echo base_url();?>index.php/Asset/location_change">Location Change</a>
                     </li>
                     <li id="owner_change">
-                        <a href="#">Owner Change</a>
+                        <a href="<?php echo base_url();?>index.php/Asset/owner_change">Owner Change</a>
                     </li>
                 </ul>
             </li>
@@ -119,11 +120,11 @@ switch ($usergroup) {
             <li id="master_table">
                 <a href="javascript:;" data-toggle="collapse" data-target="#master_table_list"><i class="fa fa-fw fa-arrows-v"></i> Master Table <i class="fa fa-fw fa-caret-down"></i></a>
                 <ul id="master_table_list" class="collapse">
-                    <li id="add_category">
-                        <a href="/AMS/index.php/Master/addData">Add Master Data</a>
+                    <li id="addData">
+                        <a href="<?php echo base_url();?>index.php/Master/addData">Add Master Data</a>
                     </li>
-                    <li id="add_location">
-                        <a href="/AMS/index.php/Master/removeData">Remove Master Data</a>
+                    <li id="removeData">
+                        <a href="<?php echo base_url();?>index.php/Master/removeData">Remove Master Data</a>
                     </li>
 
                 </ul>
@@ -138,28 +139,13 @@ switch ($usergroup) {
 
           if($usergroup == 3){
           ?>
+
+            <li id="dashboard">
+                <a href="<?PHP echo base_url('index.php') ?>"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+            </li>
+
             <li id="asset_authorizer">
-                <a href="/AMS/index.php/Asset/authorize"><i class="fa fa-fw fa-database"></i> Asset Authorize</a>
-            </li>
-
-            <li id="re_valuation">
-                <a href="/AMS/index.php/Asset/re_valuation"><i class="fa fa-fw fa-recycle "></i> Re-valuation</a>
-            </li>
-
-
-            <li id="asset_movement">
-                <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Asset Movement <i class="fa fa-fw fa-caret-down"></i></a>
-                <ul id="demo" class="collapse">
-                    <li id="disposal">
-                        <a href="/AMS/index.php/Asset/disposal">Disposal</a>
-                    </li>
-                    <li id="loc_change">
-                        <a href="/AMS/index.php/Asset/location_change">Location Change</a>
-                    </li>
-                    <li id="owner_change">
-                        <a href="#">Owner Change</a>
-                    </li>
-                </ul>
+                <a href="<?php echo base_url();?>index.php/Asset/authorize"><i class="fa fa-fw fa-database"></i> Asset Authorize</a>
             </li>
 
           <?php
@@ -171,13 +157,17 @@ switch ($usergroup) {
 
           if($usergroup == 2){
           ?>
-            <li id="asset_register">
-                <a href="/AMS/index.php/Asset/register"><i class="fa fa-fw fa-database"></i> Asset Registration</a>
+
+            <li id="dashboard">
+                <a href="<?PHP echo base_url('index.php') ?>"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
             </li>
 
+            <li id="asset_register">
+                <a href="<?php echo base_url();?>index.php/Asset/register"><i class="fa fa-fw fa-database"></i> Asset Registration</a>
+            </li>
 
             <li id="re_valuation">
-                <a href="/AMS/index.php/Asset/re_valuation"><i class="fa fa-fw fa-recycle "></i> Re-valuation</a>
+                <a href="<?php echo base_url();?>index.php/Asset/re_valuation"><i class="fa fa-fw fa-recycle "></i> Re-valuation</a>
             </li>
 
 
@@ -185,30 +175,17 @@ switch ($usergroup) {
                 <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Asset Movement <i class="fa fa-fw fa-caret-down"></i></a>
                 <ul id="demo" class="collapse">
                     <li id="disposal">
-                        <a href="/AMS/index.php/Asset/disposal">Disposal</a>
+                        <a href="<?php echo base_url();?>index.php/Asset/disposal">Disposal</a>
                     </li>
                     <li id="loc_change">
-                        <a href="/AMS/index.php/Asset/location_change">Location Change</a>
+                        <a href="<?php echo base_url();?>index.php/Asset/location_change">Location Change</a>
                     </li>
                     <li id="owner_change">
-                        <a href="#">Owner Change</a>
+                        <a href="<?php echo base_url();?>index.php/Asset/owner_change">Owner Change</a>
                     </li>
                 </ul>
             </li>
 
-
-            <li id="master_table">
-                <a href="javascript:;" data-toggle="collapse" data-target="#master_table_list"><i class="fa fa-fw fa-arrows-v"></i> Master Table <i class="fa fa-fw fa-caret-down"></i></a>
-                <ul id="master_table_list" class="collapse">
-                    <li id="add_category">
-                        <a href="/AMS/index.php/Master/addData">Add Master Data</a>
-                    </li>
-                    <li id="add_location">
-                        <a href="/AMS/index.php/Master/removeData">Remove Master Data</a>
-                    </li>
-
-                </ul>
-            </li>
           <?php
           }
           ?>
@@ -218,9 +195,9 @@ switch ($usergroup) {
 
           if($usergroup == 1){
           ?>
-            <li id="asset_authorizer">
-                <a href="/AMS/index.php/Asset/authorize"><i class="fa fa-fw fa-database"></i> Asset Authorize</a>
-            </li>
+          <li id="dashboard">
+              <a href="<?PHP echo base_url('index.php') ?>"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+          </li>
 
             <li id="user_view">
                 <a href="/AMS/index.php/User/view"><i class="fa fa-fw fa-database"></i>User View</a>

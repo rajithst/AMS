@@ -75,6 +75,8 @@ if ($logedin != true){
                                         </tr>
                                     </thead>
                                     <tbody>
+
+
                                       <?php
                                         foreach ($list1->result() as $row) {
                                           echo "<tr class=\"odd gradeX\">
@@ -82,11 +84,12 @@ if ($logedin != true){
                                               <td>".$row->{'category'}."</td>
                                               <td class=\"center\">".$row->{'cia_value'}."</td>
                                               <td>".$row->{'location'}."</td>
-                                              <td>".$row->{'disposal_date'}."</td>
-                                              <td><button type=\"submit\" name=".$row->{'asset_id'}." value=".$row->{'asset_id'}." id=\"btn_view\"  class=\"btn btn-primary btn-xs\" style=\"width:100px\">View</button></td>
-                                          </tr>";
+                                              <td>".$row->{'disposal_date'}."</td><form action=\" ".base_url()."index.php/Asset/viewAsset\" method=\"post\">
+                                              <td><button type=\"submit\" name=\"btn_view\" value=".$row->{'asset_id'}." id=\"btn_view\"  class=\"btn btn-primary btn-xs\" style=\"width:100px\">View</button></td>
+                                          </tr></form>";
                                         }
                                        ?>
+
 
                                     </tbody>
                                 </table>
@@ -97,12 +100,8 @@ if ($logedin != true){
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
-                <div class="row col-lg-8">
+                <div class="row col-lg-7">
                   <div id="chartContainer" style="height: 300px; width: 100%;"></div>
-
-                </div>
-                <div class="row col-lg-12">
-                  <hr>
                 </div>
                 <!-- /.col-lg-6 -->
                 <div class="col-lg-5">
@@ -128,9 +127,9 @@ if ($logedin != true){
                                           echo "<tr>
                                               <td>".$row2->{'PABC_serial_number'}."</td>
                                               <td>".$row2->{'category'}."</td>
-                                              <td>".$row2->{'disposal_date'}."</td>
-                                              <td><button type=\"submit\" name=".$row2->{'asset_id'}." value=".$row->{'asset_id'}." id=\"btn_view\"  class=\"btn btn-success btn-xs\" style=\"\">View</button></td>
-                                          </tr>";
+                                              <td>".$row2->{'disposal_date'}."</td><form action=\" ".base_url()."index.php/Asset/viewAsset\" method=\"post\">
+                                              <td><button type=\"submit\" name=\"btn_view\" value=".$row->{'asset_id'}." id=\"btn_view\"  class=\"btn btn-success btn-xs\" style=\"\">View</button></td>
+                                          </tr></form>";
                                         }
                                        ?>
                                     </tbody>
@@ -167,17 +166,17 @@ if ($logedin != true){
               "order": [[ 1, "desc" ]]
           });
 
-          $('#authorizing_list').on('click','#btn_view',function(){
-            console.log(this.value);
-            $.ajax({
-              type: "POST",
-              url:"/AMS/index.php/Asset/authorizeItem",
-              data:{asset_id:this.value},
-              success:function(result){
-                $('.newOne').html(result);
-              }
-            });
-          });
+          //$('#authorizing_list').on('click','#btn_view',function(){
+            // console.log(this.value);
+            // $.ajax({
+            //   type: "POST",
+            //   url:"/AMS/index.php/Asset/viewAsset",
+            //   data:{asset_id:this.value},
+            //   success:function(result){
+            //     $('.newOne').html(result);
+            //   }
+            // });
+          //});
 
         	var chart = new CanvasJS.Chart("chartContainer",
         	{

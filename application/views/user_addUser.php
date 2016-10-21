@@ -68,7 +68,6 @@ if ($logedin != true){
             <form action="/AMS/index.php/admin/UserData/addUser" method="post" name = "adduser">
 
                 <div class="row col-lg-12">
-
                     <div class="form-group col-lg-3" id="empiddiv">
                         <label>Employee No.</label>
                         <input type="text" name="user_id" value="" id='user_id' disabled required>
@@ -85,32 +84,28 @@ if ($logedin != true){
                         </select>
                     </div>
 
+                  </div>
+
+                  <div class="row col-lg-12">
                     <div class="form-group col-lg-3" id="usernamediv">
                         <label>User Name </label>
                         <input type="text" name="user_name" oninput="activate('adduser', this, 'user_password')" required disabled >
                     </div>
 
-                    <div class="form-group col-lg-3" id="passworddiv">
+                    <div class="form-group col-lg-2" id="passworddiv">
                         <label>Password</label>
-                        <input type="password" name="user_password" oninput="activate('adduser', this, 'pwd_reset')" required disabled >
+                        <input type="password" id="password" name="user_password" oninput="activate('adduser', this, 'pwd_reset')" required disabled >
                     </div>
-
-
-
-                    <div class="row col-lg-12">
-                      <div class="form-group col-lg-3">
-                          <label>Password Reset</label>
-                          <input type="text" name="pwd_reset" disabled>
-                      </div>
-                    </div>
+                  </div>
+                  <div class="row col-lg-6">
 
                     <div class="row col-lg-12">
                       <div class="form-group ">
-                        <button type="submit" class="btn btn-primary" style="width:100px; float:right">Add User</button>
+                        <button type="submit" id="submitBtn" class="btn btn-primary" style="width:100px; float:right" disabled>Add User</button>
                       </div>
                     </div>
+                  </div>
 
-              </div>
             </form>
 
 
@@ -129,19 +124,13 @@ if ($logedin != true){
 <!-- /#wrapper -->
 
 <?php require_once 'includes/_footer.php'; ?>
+<script src="<?php echo base_url('assets/js/pwstrength-bootstrap.js'); ?>"></script>
 </body>
 
 </html>
 <script>
 
-
-
-
-
 $(document).ready(function () {
-
-
-
 
   $('#userGroup').select2({
     minimumResultsForSearch: Infinity
@@ -169,9 +158,26 @@ $(document).ready(function () {
     var s = num+"";
     while (s.length < size) s = "0" + s;
     return s;
-}
+  }
 
+  // password field
+  var options = {};
+    options.ui = {
+      showVerdictsInsideProgressBar: true,
+    };
+    options.common = {
+      onKeyUp: function (evt, data) {
+
+           if(data.score > 40 ){
+             $('#submitBtn').prop('disabled',false);
+           }else{
+             $('#submitBtn').prop('disabled',true);
+           }
+      }
+  };
+    $('#password').pwstrength(options);
 });
+
 
 
 </script>

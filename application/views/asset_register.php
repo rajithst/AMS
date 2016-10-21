@@ -63,7 +63,7 @@
 
                     <div class="form-group form-group-sm col-lg-4 col-md-4 col-sm-4 ">
                         <label>Reference Number</label>
-                        <input type="text" name="reference_num" value="" class="form-control">
+                        <input type="text" name="reference_num" id="reference_num" value="" class="form-control">
                     </div>
                 </div>
                 <hr class="col-lg-8">
@@ -124,7 +124,19 @@
                     <label>Asset Serial Number</label>
                     <input type="text" name="assetSerial" value="" id="assetSerial" class="form-control">
                   </div>
+
                 </div>
+
+                <div class="row col-lg-8">
+                  <div class="form-group col-lg-12">
+
+                  <button type="button" class="col-lg-2 btn btn-info btn-xs" name="get_barcode" id="get_barcode">Generate Barcode</button>
+                  <div class="col-lg-4" id="barcode">
+                  </div>
+                </div>
+
+                </div>
+
                 <div class="row col-lg-8">
                   <div class="form-group form-group-sm col-lg-8">
                     <label>Description</label>
@@ -249,6 +261,9 @@
 <!-- /#wrapper -->
 
 <?php require_once 'includes/_footer.php'; ?>
+
+<script src="<?php echo base_url('assets/js/jquery-barcode.js'); ?>"></script>
+
 </body>
 
 </html>
@@ -258,6 +273,45 @@ $(document).ready(function () {
 
             // Disposal date datepicker set up
             $('#disposal_date').datepicker({dateFormat : 'yy-mm-dd'});
+
+            //Gnerate serial number
+            $('#assetSerial').val(Math.floor((Math.random() * 10000000000000)));
+
+            //REference number generate
+            //Get last  id and generate new  id
+            $.ajax({
+              url:"/AMS/index.php/admin/Assetdata/getAssetId",
+              dataType:"json",
+              type:"POST",
+              success:function(data){
+                if(data[0]){
+                  var num = parseInt(data[0]['asset_id']);
+                }else{
+                  var num = 0;
+                }
+
+                var number = pad( num+1 , 4);
+
+                $('#reference_num').val(number);
+              }
+            });
+
+            function pad(num, size) {
+              var s = num+"";
+              while (s.length < size) s = "0" + s;
+              return 'A'+s;
+            }
+
+
+            //Barcode generate
+            $('#get_barcode').click(function(){
+              var str = $('#assetSerial').val();
+              $("#barcode").barcode(
+                str,
+                "ean13",
+                {barWidth:2, barHeight:30}
+              );
+            });
 
             var cat_id ="";
 

@@ -17,7 +17,7 @@ if ($logedin != true){
 <head>
 <!-- Import header content -->
 <?php require_once 'includes/_header.php';?>
-<title>ANS | ASSET RE-VALUATOIN</title>
+<title>ANS | ASSET VIEW</title>
 </head>
 
 <body>
@@ -35,33 +35,18 @@ if ($logedin != true){
       <div class="col-lg-12">
           <h1 class="page-header">
               Asset Management System
-              <small>Asset Registration</small>
+              <small>Asset Details</small>
           </h1>
           <ol class="breadcrumb">
               <li>
                   <i class="fa fa-dashboard"></i>  <a href="<?PHP echo base_url('index.php') ?>">Dashboard</a>
               </li>
               <li class="active">
-                  <i class="fa fa-file"></i> Re-Valuation
+                  <i class="fa fa-file"></i> View
               </li>
           </ol>
 
-          <!-- Form Begin -->
-          <form action="/AMS/index.php/admin/Assetdata/search" method="post">
 
-              <div class="row col-lg-12">
-                  <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xm-6">
-                      <input type="text" name="searchText" id="search" value="" class="form-control" placeholder='Search PABC Serial Number' required>
-                  </div>
-                  <div class="col-lg-4">
-                    <button type="submit" class="btn btn-success btn-md" name="search"> Search</button>
-                  </div>
-              </div>
-
-          </form>
-          <div class="row col-lg-12">
-            <hr>
-          </div>
           <?php
           if( isset($list)){
               foreach ($list->result() as $row) {
@@ -180,28 +165,26 @@ if ($logedin != true){
                 <div class="row col-lg-8">
                   <div class="form-group form-group-sm col-lg-4">
                     <label>Lifetime Period</label>
-                    <select class="form-control" name="assetLifetime" id="assetLifetime" required>
-                      <option value=""><?php echo $row->{'lifetime'}; ?></option>
-                    </select>
+                    <input type="text" name="assetLifetime" id="assetLifetime" value="<?php echo $row->{'lifetime'}; ?>" class="form-control" disabled>
+
                   </div>
 
                   <div class="form-group form-group-sm col-lg-4">
                     <label>Depreciation Rate</label>
-                    <input type="number" name="asset_dep_rate" value="<?php echo $row->{'depreciation_rate'}; ?>" class="form-control" min="0" step="any" required>
+                    <input type="text" name="asset_dep_rate" value="<?php echo $row->{'depreciation_rate'}; ?>" class="form-control" disabled>
                   </div>
 
                   <div class="form-group form-group-sm col-lg-4">
                     <label>Warranty Period</label>
-                    <select class="form-control" name="assetWarranty" id="assetWarranty" required>
-                      <option value=""><?php echo $row->{'warranty'}; ?></option>
-                    </select>
+                    <input type="text" name="assetWarranty" id="assetWarranty" value="<?php echo $row->{'warranty'}; ?>" class="form-control" disabled>
+
                   </div>
                 </div>
                 <div class="row col-lg-8">
 
                   <div class="form-group form-group-sm col-lg-5">
                     <label>Maintain Status</label>
-                    <input type="text" name="asset_maintain_status" value="<?php echo $row->{'Maintain_status'}; ?>" class="form-control">
+                    <input type="text" name="asset_maintain_status" value="<?php echo $row->{'Maintain_status'}; ?>" class="form-control" disabled>
                   </div>
 
                   <div class="form-group form-group-sm col-lg-5">
@@ -212,21 +195,21 @@ if ($logedin != true){
                 <div class="row col-lg-8">
                   <div class="form-group form-group-sm col-lg-5">
                     <label>Disposal Date</label>
-                    <input type="text" name="asset_disposal_date" id="disposal_date" value="<?php echo $row->{'disposal_date'}; ?>" class="form-control">
+                    <input type="text" name="asset_disposal_date" id="disposal_date" value="<?php echo $row->{'disposal_date'}; ?>" class="form-control" disabled>
                   </div>
                 </div>
                 <div class="row col-lg-8">
                   <div class="form-group form-group-sm col-lg-12">
                     <label>Remark</label>
-                    <input type="text" name="asset_remark" value="<?php echo $row->{'remark'}; ?>" class="form-control">
+                    <input type="text" name="asset_remark" value="<?php echo $row->{'remark'}; ?>" class="form-control" disabled>
                   </div>
                 </div>
 
                 <div class="row col-lg-8">
                   <div class="form-group form-group-sm col-lg-offset-8">
                     <input type="hidden" name='index' value="<?php echo $row->{'asset_id'}; ?>">
-                    <button type="submit" name='submit' class="btn btn-success btn-sm" style="width:100px">Authorize</button>
-                    <button onclick="location.href = '<?PHP echo base_url('index.php') ?>'" class="btn btn-primary btn-sm" style="width:100px">Back</button>
+                    <!-- <button type="submit" name='submit' class="btn btn-success btn-sm" style="width:100px">Authorize</button> -->
+                    <button onclick="location.href = '<?PHP echo base_url('index.php') ?>'" class="btn btn-primary btn-sm" style="width:100px; float:right; ">Back</button>
                   </div>
 
                 </div>

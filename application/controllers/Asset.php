@@ -31,7 +31,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     public function re_valuation()
     {
-        $this->load->view('asset_re-valuation');
+      //$aid = $this->input->post('asset_id');
+      //$data['list'] =  $this->Asset_data->getRevaluationAsset($aid);
+      $this->load->view('asset_re-valuation');
+    }
+
+    public function viewAsset()
+    {
+      $aid = $this->input->post('btn_view');
+      $data['list'] =  $this->Asset_data->getAssetData($aid);
+      $this->load->view('asset_view_asset',$data);
     }
 
     public function disposal()
@@ -42,6 +51,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     public function location_change()
     {
         $this->load->view('asset_location_change');
+    }
+
+    public function owner_change()
+    {
+        $this->load->view('asset_owner_change');
     }
   }
 

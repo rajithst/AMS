@@ -27,3 +27,6 @@
 
 <!-- DataTables Responsive CSS -->
 <link href="<?php echo base_url('assets/js/datatables-responsive/dataTables.responsive.css'); ?>" rel="stylesheet">
+
+<!-- Application CSS -->
+<link href="<?php echo base_url('assets/css/application.css'); ?>" rel="stylesheet">

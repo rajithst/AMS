@@ -12,6 +12,7 @@ class User extends Admin_Controller {
 
         parent::__construct();
         $this->load->model('Login_d');
+        $this->load->model('User_data');
     }
 
 
@@ -42,9 +43,19 @@ class User extends Admin_Controller {
     }
 
     public function logout(){
-
         $this->Login_d->logout();
         redirect('admin/User/login');
-
     }
+
+    public function addUser()
+    {
+      $this->load->view('user_addUser');
+    }
+
+    public function management()
+    {
+        $data['list'] = $this->User_data->getAllUsers();
+        $this->load->view('user_management',$data);
+    }
+
 }

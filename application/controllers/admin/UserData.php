@@ -24,6 +24,35 @@ class UserData extends Admin_Controller {
 
 	}
 
+	function getPassword() {
+
+		$data = $this->User_data->getPassword();
+		echo json_encode($data);
+
+	}
+
+	function resetPassword() {
+
+		$res = $this->User_data->resetPassword();
+		if ($res) {
+			echo "
+			<script>
+							setTimeout(function () {
+									swal('Success', 'New password set.', 'success');
+							}, 300);
+						</script>";
+						$this->load->view('user_setting');
+		}else{
+			echo "
+			<script>
+							setTimeout(function () {
+									swal('Sorry', 'Something went wrong.', 'error');
+							}, 300);
+						</script>";
+			$this->load->view('user_setting');
+		}
+	}
+
 	function addUser() {
 
 		$res = $this->User_data->add();

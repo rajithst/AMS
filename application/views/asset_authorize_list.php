@@ -54,7 +54,7 @@ if ($logedin != true){
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            DataTables Advanced Tables
+                            Un-authorized Asset Data
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">

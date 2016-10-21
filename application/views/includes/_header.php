@@ -21,3 +21,9 @@
 
 <!-- jQuery UI CSS -->
 <link rel="stylesheet" href="<?php echo base_url('assets/css/jquery-ui.css'); ?> ">
+
+<!-- DataTables CSS -->
+<link href="<?php echo base_url('assets/js/datatables-plugins/dataTables.bootstrap.css'); ?>" rel="stylesheet">
+
+<!-- DataTables Responsive CSS -->
+<link href="<?php echo base_url('assets/js/datatables-responsive/dataTables.responsive.css'); ?>" rel="stylesheet">

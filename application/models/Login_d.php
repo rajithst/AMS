@@ -32,8 +32,8 @@ class Login_d extends MY_Model{
 
     function login(){
 
-                $username=$this->input->post('username');
-                $password =$this->input->post('password');
+        $username=$this->input->post('username');
+        $password =$this->input->post('password');
 
         $sql = "SELECT * FROM user WHERE user_name='$username' AND password ='$password'";
         $query = $this->db->query($sql);
@@ -45,10 +45,8 @@ class Login_d extends MY_Model{
            $ugroup = $result->user_group;
        }
 
-
         if ($rows == 1) {
             $this->session->set_userdata(
-
                 array(
                 'username'  => $username,
                 'usergroup' => $ugroup,
@@ -56,27 +54,18 @@ class Login_d extends MY_Model{
                 'user_id'   => $u_id
 
                 ));
-
             return  true;
-
         }
-
-
     }
 
     function logout(){
-
         $this->session->sess_destroy();
-
     }
 
     function loggedin(){
-
         return (bool)$this->session->userdata('loggedin');
-
     }
-
-
+    
     /* function hash($string){
         return hash('md5',$string.config_item('encryption_key'));
 

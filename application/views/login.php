@@ -75,23 +75,12 @@
 <?php require_once 'includes/_footer.php'; ?>
 
 </body>
-
 </html>
-
 <script>
     $(document).ready(function () {
-
         $('.forgot-password').click(function (e) {
-
             e.preventDefault();
-
             swal("Please contac System Administrator!")
-
-
         });
-
-
     });
-
-
 </script>

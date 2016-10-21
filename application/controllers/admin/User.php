@@ -26,14 +26,9 @@ class User extends Admin_Controller {
         $this->form_validation->set_rules($rules);
 
         if($this->form_validation->run()==TRUE) {
-
             if ($this->Login_d->login() == true) {
-
                 redirect($dashboard) ;
-
-
             }else {
-
                echo "
 			<script>
 							setTimeout(function () {
@@ -41,17 +36,10 @@ class User extends Admin_Controller {
 							}, 300);
 						</script>";
                         //$this->session->set_flashdata('error','That email password combination does not exist');
-                        //
-
-
              }
-
         }
-
         $this->load->view('login');
     }
-
-
 
     public function logout(){
 

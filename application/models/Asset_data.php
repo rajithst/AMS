@@ -48,11 +48,24 @@ class Asset_data extends MY_Model {
 
 	}
 
-    function getall(){
-        $sql = "SELECT * FROM Asset_Details";
+    function getAll(){
+        $sql = "SELECT asset_id,PABC_serial_number,category,cia_value,location,disposal_date FROM Asset_Details,Asset_category,Asset_location WHERE authorize=1 AND Asset_Details.asset_category = Asset_category.cat_id AND Asset_Details.asset_location=Asset_location.location_id ";
         $query = $this->db->query($sql);
-        return $query->result();
+        return $query;
     }
+
+
+    function getDisposable(){
+        $sql = "SELECT asset_id,PABC_serial_number,category,disposal_date FROM Asset_Details,Asset_category WHERE authorize=1  AND Asset_Details.asset_category = Asset_category.cat_id AND disposal_date between CURDATE() and DATE_ADD(CURDATE(),INTERVAL 6 MONTH) order by disposal_date desc";
+        $query = $this->db->query($sql);
+        return $query;
+    }
+
+		function getCategoryData(){
+			$sql = "SELECT category,COUNT(category) AS total FROM Asset_Details,Asset_category WHERE authorize=1  AND Asset_Details.asset_category = Asset_category.cat_id GROUP BY asset_category";
+			$query = $this->db->query($sql);
+			return $query;
+		}
 
 		function getUnauthorizedData(){
         //$sql = "SELECT id,PABC_serial_number,asset_category,cia_value,location,dataInputer FROM Asset_Details WHERE authorize=0 ";

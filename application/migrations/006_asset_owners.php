@@ -24,7 +24,7 @@ class Migration_asset_owners extends CI_Migration
     ));
 
     $this->dbforge->add_key('owner_id',TRUE);
-    $this->dbforge->create_table('Asser_owner');
+    $this->dbforge->create_table('Asset_owner');
 
   }
 

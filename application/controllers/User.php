@@ -6,11 +6,15 @@ class User extends CI_Controller{
   public function __construct()
   {
     parent::__construct();
+    $this->load->model('User_data');
   }
 
-  public function addUser()
+  
+
+  public function setting()
   {
-    $this->load->view('user_addUser');
+    $data['user_data'] = $this->User_data->getUser();
+    $this->load->view('user_setting',$data);
   }
 
 }

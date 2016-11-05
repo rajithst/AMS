@@ -7,14 +7,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
    */
   class Master extends Frontend_Controller{
 
-    public function categories(){
+    public function addData(){
 
-      $this->load->view('master_categories');
+      $this->load->view('master_add_data');
     }
 
-    public function locations()
+    public function removeData()
     {
-        $this->load->view('master_locations');
+        $this->load->view('master_remove_data');
     }
 
   }

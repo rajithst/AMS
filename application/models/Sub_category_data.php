@@ -19,17 +19,24 @@ class Sub_category_data extends MY_Model {
 
 	}
 
-    function getall(){
-				$cat_id = $this->input->get('search');
-        $sql = "SELECT sub_cat_id AS id, sub_category AS text FROM Asset_sub_category WHERE category_id='$cat_id'";
-        $query = $this->db->query($sql);
-        return $query->result();
-    }
-    //
-    // function getCategory(){
-    //     $sql = "SELECT cat_id AS id, cat_name AS text FROM Asset_category";
-    //     $query = $this->db->query($sql);
-    //     return $query->result();
-    // }
+  function getall(){
+			$cat_id = $this->input->get('search');
+      $sql = "SELECT sub_cat_id AS id, sub_category AS text FROM Asset_sub_category WHERE category_id='$cat_id'";
+      $query = $this->db->query($sql);
+      return $query->result();
+  }
+
+	function remove(){
+		$id =  $this->input->post('asset_sub_category');
+		$this->db->where('sub_cat_id',$id);
+		$this->db->delete('Asset_sub_category');
+		$res = $this->db->affected_rows();
+
+		if($res){
+			return true;
+		}
+	}
+
+
 
 }

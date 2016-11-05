@@ -24,4 +24,15 @@ class Category_data extends MY_Model {
       return $query->result();
   }
 
+	function remove(){
+		$id =  $this->input->post('asset_category');
+		$this->db->where('cat_id',$id);
+		$this->db->delete('Asset_category');
+		$res = $this->db->affected_rows();
+		
+		if($res){
+			return true;
+		}
+	}
+
 }

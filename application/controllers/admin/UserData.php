@@ -7,32 +7,61 @@ class UserData extends Admin_Controller {
 	public function __construct() {
 
 		parent::__construct();
-		$this->load->model('Employee_data');
+		$this->load->model('User_data');
 	}
 
 	function getUser() {
 
-		$data = $this->Employee_data->getall();
+		$data = $this->User_data->getall();
 		echo json_encode($data);
 
 	}
 
-  function getEmpId() {
+  function getUserId() {
 
-		$data = $this->Employee_data->getEmpId();
+		$data = $this->User_data->getUserId();
 		echo json_encode($data);
 
 	}
 
-	function addUser() {
+	function getPassword() {
 
-		$res = $this->Employee_data->add();
+		$data = $this->User_data->getPassword();
+		echo json_encode($data);
+
+	}
+
+	function resetPassword() {
+
+		$res = $this->User_data->resetPassword();
 		if ($res) {
 			echo "
 			<script>
 							setTimeout(function () {
-									swal('Success', 'New member added.', 'success');
-							}, 700);
+									swal('Success', 'New password set.', 'success');
+							}, 300);
+						</script>";
+						$this->load->view('user_setting');
+		}else{
+			echo "
+			<script>
+							setTimeout(function () {
+									swal('Sorry', 'Something went wrong.', 'error');
+							}, 300);
+						</script>";
+			$this->load->view('user_setting');
+		}
+	}
+
+	function addUser() {
+
+		$res = $this->User_data->add();
+		if ($res) {
+			echo "
+			<script>
+							setTimeout(function () {
+									swal('Success', 'New user added.', 'success');
+							}, 300);
 						</script>";
 			$this->load->view('user_addUser');
 		}else{
@@ -40,35 +69,11 @@ class UserData extends Admin_Controller {
 			<script>
 							setTimeout(function () {
 									swal('Sorry', 'Something went wrong.', 'error');
-							}, 700);
+							}, 300);
 						</script>";
 			$this->load->view('user_addUser');
 		}
 
 	}
-
-	// function addSubCategory() {
-	//
-	// 	$res2 = $this->Sub_category_data->add();
-	// 	if ($res2) {
-	// 		echo "
-	// 		<script>
-	// 						setTimeout(function () {
-	// 							swal('Success', 'You entered new sub category', 'success';
-	// 						}, 700);
-	// 					</script>";
-	// 		$this->load->view('master_categories');
-	// 	}else{
-	// 		echo "
-	// 		<script>
-	// 						setTimeout(function () {
-	// 								swal('Sorry', 'Something went wrong.', 'error');
-	// 						}, 700);
-	// 					</script>";
-	// 		$this->load->view('master_categories');
-	// 	}
-	//
-	// }
-
 
 }

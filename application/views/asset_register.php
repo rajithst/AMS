@@ -1,16 +1,12 @@
 <?php
 
-$logedin = $this->session->userdata('loggedin');
-
-if ($logedin != true){
-
-    redirect('admin/User/login');
-
-}
-
+  $logedin = $this->session->userdata('loggedin');
+  $user_id = $this->session->userdata('user_id');
+  if ($logedin != true){
+      redirect('admin/User/login');
+  }
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -54,180 +50,197 @@ if ($logedin != true){
             <!-- Form Begin -->
             <form action="/AMS/index.php/admin/Assetdata/register" method="post">
                 <div class="row col-lg-8">
-                    <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xm-6">
+                    <div class="form-group form-group-sm col-lg-4 col-md-4 col-sm-4 col-xm-6">
                         <label>Date</label>
                         <input type="text" name="date" id='date' value="" class="form-control" disabled>
                     </div>
 
-                    <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xm-6">
+                    <div class="form-group form-group-sm col-lg-4 col-md-4 col-sm-4 col-xm-6">
                         <label>PABC Serial Number</label>
-                        <input type="text" name="pabc_serial" value="" class="form-control">
+                        <input type="text" id="pabc_serial1" class="form-control" disabled>
+                        <input type="hidden" name="pabc_serial" id="pabc_serial" required>
                     </div>
 
-                    <div class="form-group col-lg-4 col-md-4 col-sm-4 ">
+                    <div class="form-group form-group-sm col-lg-4 col-md-4 col-sm-4 ">
                         <label>Reference Number</label>
-                        <input type="text" name="reference_num" value="" class="form-control">
+                        <input type="text" name="reference_num" id="reference_num" value="" class="form-control">
                     </div>
                 </div>
                 <hr class="col-lg-8">
                 <div class="row col-lg-8">
-                    <div class="form-group col-lg-4" id="assetcatdiv">
+                    <div class="form-group form-group-sm col-lg-4" id="assetcatdiv">
                         <label>Asset Category</label>
-                        <select class="form-control" name="asset_category" id="assetcat" >
+                        <select class="form-control" name="asset_category" id="assetcat" required>
                             <option value="">--SELECT CATEGORY--</option>
 
                         </select>
                     </div>
-                    <div class="form-group col-lg-4">
+                    <div class="form-group form-group-sm col-lg-4">
                         <label>Asset Sub Category</label>
-                        <select class="form-control" name="sub_category" id='sub_cat' disabled>
+                        <select class="form-control" name="sub_category" id='sub_cat' disabled required>
                             <option value="">-- SELECT --</option>
                         </select>
                     </div>
 
                     <div class="row col-lg-8">
-                      <div class="form-group col-lg-3">
+                      <div class="form-group form-group-sm col-lg-3">
                         <label>C</label>
-                        <input type="number" name="asset_dep_rate_C" id="asset_dep_rate_C" value="0" class="form-control " min="1" max="3" >
+                        <input type="number" name="asset_rate_C" id="asset_dep_rate_C" value="0" class="form-control " min="0" max="3" >
                       </div>
-                      <div class="form-group col-lg-3">
+                      <div class="form-group form-group-sm col-lg-3">
                         <label for="">I</label>
-                        <input type="number" name="asset_dep_rate_I" id="asset_dep_rate_I" value="0" class="form-control " min="1" max="3" >
+                        <input type="number" name="asset_rate_I" id="asset_dep_rate_I" value="0" class="form-control " min="0" max="3" >
                       </div>
-                      <div class="form-group col-lg-3">
+                      <div class="form-group form-group-sm col-lg-3">
                         <label for="">A</label>
-                        <input type="number" name="asset_dep_rate_A" id="asset_dep_rate_A" value="0" class="form-control " min="1" max="3" >
+                        <input type="number" name="asset_rate_A" id="asset_dep_rate_A" value="0" class="form-control " min="0" max="3" >
                       </div>
-                      <div class="form-group col-lg-2">
+                      <div class="form-group form-group-sm col-lg-2">
                         <label for="">Value</label>
-                        <input type="text" id="asset_dep_value" value="" disabled>
+                        <input type="text" id="asset_dep_value" style='width:100px;' disabled>
+                        <input type="hidden" name="asset_value" id="asset_value" required>
                       </div>
                     </div>
                 </div>
 
                 <div class="row col-lg-8">
-                  <div class="form-group col-lg-6">
+                  <div class="form-group form-group-sm col-lg-6">
                     <label>Asset Custodian</label>
-                    <select class="form-control" name="asset_custodian" id="custodian_id">
+                    <select class="form-control" name="assetCustodian" id="assetCustodian">
                       <option value="">-- Select --</option>
 
                     </select>
                   </div>
-                  <div class="form-group col-lg-6">
+                  <div class="form-group form-group-sm col-lg-6">
                     <label>Asset Owner</label>
-                    <select class="form-control" name="asset_owner" id="user_id">
+                    <select class="form-control" name="assetOwner" id="assetOwner" required>
                       <option value="">-- Select --</option>
 
                     </select>
                   </div>
                 </div>
                 <div class="row col-lg-8">
-                  <div class="form-group col-lg-6">
+                  <div class="form-group form-group-sm col-lg-6">
                     <label>Asset Serial Number</label>
-                    <input type="text" name="asset_serial" value="" id="serial" class="form-control">
+                    <input type="text" name="assetSerial" value="" id="assetSerial" class="form-control">
+                  </div>
+
+                </div>
+
+                <div class="row col-lg-8">
+                  <div class="form-group col-lg-12">
+
+                  <button type="button" class="col-lg-2 btn btn-info btn-xs" name="get_barcode" id="get_barcode">Generate Barcode</button>
+                  <div class="col-lg-4" id="barcode">
                   </div>
                 </div>
+
+                </div>
+
                 <div class="row col-lg-8">
-                  <div class="form-group col-lg-8">
+                  <div class="form-group form-group-sm col-lg-8">
                     <label>Description</label>
-                    <input type="text" name="asset_description" value="" class="form-control">
+                    <textarea name="assetDescription" class="form-control" rows="8" cols="40"></textarea>
+
                   </div>
 
                 </div>
                 <div class="row col-lg-8">
-                  <div class="form-group col-lg-4">
+                  <div class="form-group form-group-sm col-lg-4">
                     <label>OS Version</label>
                     <input type="text" name="asset_os_version" value="" class="form-control">
                   </div>
-                  <div class="form-group col-lg-2">
+                  <div class="form-group form-group-sm col-lg-2">
                     <label>Color</label>
                     <input type="color" name="asset_color" value="" class="form-control">
                   </div>
                 </div>
                 <div class="row col-lg-8">
-                  <div class="form-group col-lg-5">
+                  <div class="form-group form-group-sm  col-lg-5">
                     <label>Asset Model</label>
-                    <input type="text" name="asset_model" value="" class="form-control">
+                    <select class="form-control" name="assetModel" id="assetModel" required>
+                      <option value="">-- Select --</option>
+
+                    </select>
+
                   </div>
-                  <div class="form-group col-lg-5">
+                  <div class="form-group form-group-sm col-lg-5">
                     <label>Manufacture</label>
-                    <input type="text" name="asset_manufacture" value="" class="form-control">
+                    <select class="form-control" name="assetManufacture" id="assetManufacture" required>
+                      <option value="">-- Select --</option>
+                    </select>
                   </div>
 
                 </div>
                 <hr class="col-lg-8">
                 <div class="row col-lg-8">
-                  <div class="form-group col-lg-6">
+                  <div class="form-group form-group-sm col-lg-6">
                     <label>Location</label>
-                    <select class="form-control" name="asset_location">
-                      <option value="User1">Location 1</option>
-                      <option value="User2">Location 2</option>
-                      <option value="User3">Location 3</option>
-                      <option value="User4">Location 4</option>
+                    <select class="form-control" name="asset_location" id="asset_location">
+                      <option value="">-- select --</option>
+
                     </select>
                   </div>
 
-                  <div class="form-group col-lg-6">
+                  <div class="form-group form-group-sm col-lg-6">
                     <label>Asset Classification</label>
-                    <select class="form-control" name="asset_classification">
-                      <option value="User1">Class 1</option>
-                      <option value="User2">Class 2</option>
-                      <option value="User3">Class 3</option>
-                      <option value="User4">Class 4</option>
+                    <select class="form-control" name="assetClassification" id="assetClassification">
+                      <option value="">-- select --</option>
                     </select>
                   </div>
                 </div>
                 <div class="row col-lg-8">
-                  <div class="form-group col-lg-4">
+                  <div class="form-group form-group-sm col-lg-4">
                     <label>Lifetime Period</label>
-                    <select class="form-control" name="asset_lifetime">
-                      <option value="User1">Time 1</option>
-                      <option value="User2">Time 2</option>
-                      <option value="User3">Time 3</option>
-                      <option value="User4">Time 4</option>
+                    <select class="form-control" name="assetLifetime" id="assetLifetime" required>
+                      <option value="">-- select --</option>
                     </select>
                   </div>
-                  <div class="form-group col-lg-4">
+
+                  <div class="form-group form-group-sm col-lg-4">
                     <label>Depreciation Rate</label>
                     <input type="number" name="asset_dep_rate" value="" class="form-control" min="0" step="any">
                   </div>
-                  <div class="form-group col-lg-4">
+
+                  <div class="form-group form-group-sm col-lg-4">
                     <label>Warranty Period</label>
-                    <select class="form-control" name="asset_warranty">
-                      <option value="User1">Time 1</option>
-                      <option value="User2">Time 2</option>
-                      <option value="User3">Time 3</option>
-                      <option value="User4">Time 4</option>
+                    <select class="form-control" name="assetWarranty" id="assetWarranty" required>
+                      <option value="">-- select --</option>
                     </select>
                   </div>
                 </div>
                 <div class="row col-lg-8">
-                  <div class="form-group col-lg-5">
+
+                  <div class="form-group form-group-sm col-lg-5">
                     <label>Maintain Status</label>
                     <input type="text" name="asset_maintain_status" value="" class="form-control">
                   </div>
-                  <div class="form-group col-lg-5">
+
+                  <div class="form-group form-group-sm col-lg-5">
                     <label>Vendor</label>
-                    <input type="text" name="asset_vender" value="" class="form-control">
+                    <select class="form-control" name="assetVendor" id="assetVendor" required>
+                      <option value="">-- select --</option>
+                    </select>
+
                   </div>
                 </div>
                 <div class="row col-lg-8">
-                  <div class="form-group col-lg-5">
+                  <div class="form-group form-group-sm col-lg-5">
                     <label>Disposal Date</label>
-                    <input type="text" name="asset_disposal_date" value="" class="form-control">
+                    <input type="text" name="asset_disposal_date" id="disposal_date" value="" class="form-control">
                   </div>
                 </div>
                 <div class="row col-lg-8">
-                  <div class="form-group col-lg-12">
+                  <div class="form-group form-group-sm col-lg-12">
                     <label>Remark</label>
                     <input type="text" name="asset_remark" value="" class="form-control">
                   </div>
                 </div>
-
+                <input type="hidden" name="user_id" value="<?php echo $user_id?>">
                 <div class="row col-lg-8">
-                  <div class="form-group col-lg-offset-8">
-                    <button type="submit" class="btn btn-primary" style="width:100px">Submit</button>
-                    <button type="reset" class="btn btn-primary" style="width:100px">Reset</button>
+                  <div class="form-group form-group-sm col-lg-offset-8">
+                    <button type="submit" class="btn btn-success" style="width:100px">Submit</button>
+                    <button onclick="location.reload();" class="btn btn-danger" style="width:100px">Reset</button>
                   </div>
 
                 </div>
@@ -248,12 +261,57 @@ if ($logedin != true){
 <!-- /#wrapper -->
 
 <?php require_once 'includes/_footer.php'; ?>
+
+<script src="<?php echo base_url('assets/js/jquery-barcode.js'); ?>"></script>
+
 </body>
 
 </html>
 <script>
 
 $(document).ready(function () {
+
+            // Disposal date datepicker set up
+            $('#disposal_date').datepicker({dateFormat : 'yy-mm-dd'});
+
+            //Gnerate serial number
+            $('#assetSerial').val(Math.floor((Math.random() * 10000000000000)));
+
+            //REference number generate
+            //Get last  id and generate new  id
+            $.ajax({
+              url:"/AMS/index.php/admin/Assetdata/getAssetId",
+              dataType:"json",
+              type:"POST",
+              success:function(data){
+                if(data[0]){
+                  var num = parseInt(data[0]['asset_id']);
+                }else{
+                  var num = 0;
+                }
+
+                var number = pad( num+1 , 4);
+
+                $('#reference_num').val(number);
+              }
+            });
+
+            function pad(num, size) {
+              var s = num+"";
+              while (s.length < size) s = "0" + s;
+              return 'A'+s;
+            }
+
+
+            //Barcode generate
+            $('#get_barcode').click(function(){
+              var str = $('#assetSerial').val();
+              $("#barcode").barcode(
+                str,
+                "ean13",
+                {barWidth:2, barHeight:30}
+              );
+            });
 
             var cat_id ="";
 
@@ -277,6 +335,7 @@ $(document).ready(function () {
               cat_id = $('#assetcat').val();
               $('#sub_cat').prop('disabled',false);
               $('#sub_cat').val('');
+              $('#sub_cat').prop('selectedIndex',0);
             });
 
             //Get sub CATEGORY details
@@ -300,10 +359,40 @@ $(document).ready(function () {
               minimumResultsForSearch: Infinity
             });
 
-            // Get user details
-            $('#user_id').select2({
+            // Get Employee details to owners
+            $('#assetOwner').select2({
               ajax:{
-                url:"/AMS/index.php/admin/UserData/getUser",
+                url:"/AMS/index.php/admin/MasterData/getOwner",
+                dataType:"json",
+                delay:300,
+                processResults:function(data){
+                  return {
+                      results:data
+                  };
+                }
+              },
+              //minimumResultsForSearch: Infinity
+            });
+
+            // Get Employee details to custodian
+            $('#assetCustodian').select2({
+              ajax:{
+                url:"/AMS/index.php/admin/MasterData/getCustodian",
+                dataType:"json",
+                delay:300,
+                processResults:function(data){
+                  return {
+                      results:data
+                  };
+                }
+              },
+              //minimumResultsForSearch: Infinity
+            });
+
+            // Get location details
+            $('#asset_location').select2({
+              ajax:{
+                url:"/AMS/index.php/admin/MasterData/getLocation",
                 dataType:"json",
                 delay:300,
                 processResults:function(data){
@@ -315,19 +404,91 @@ $(document).ready(function () {
               minimumResultsForSearch: Infinity
             });
 
-            $.ajax({
-              url:"/AMS/index.php/admin/UserData/getEmpId",
-              dataType:"json",
-              type:"POST",
-              success:function(data){
-                if(data[0]){
-                  var emp = parseInt(data[0]['emp_id']);
-                }else{
-                  var emp = 0;
+            $('#assetModel').select2({
+              ajax:{
+                url:"/AMS/index.php/admin/MasterData/getModel",
+                dataType:"json",
+                delay:300,
+                processResults:function(data){
+                  return {
+                      results:data
+                  };
                 }
-                $('#emp_id').val(emp + 1);
-              }
+              },
+              //minimumResultsForSearch: Infinity
             });
+
+            $('#assetVendor').select2({
+              ajax:{
+                url:"/AMS/index.php/admin/MasterData/getVendor",
+                dataType:"json",
+                delay:300,
+                processResults:function(data){
+                  return {
+                      results:data
+                  };
+                }
+              },
+              //minimumResultsForSearch: Infinity
+            });
+
+            $('#assetClassification').select2({
+              ajax:{
+                url:"/AMS/index.php/admin/MasterData/getClassification",
+                dataType:"json",
+                delay:300,
+                processResults:function(data){
+                  return {
+                      results:data
+                  };
+                }
+              },
+              minimumResultsForSearch: Infinity
+            });
+
+            $('#assetManufacture').select2({
+              ajax:{
+                url:"/AMS/index.php/admin/MasterData/getManufacture",
+                dataType:"json",
+                delay:300,
+                processResults:function(data){
+                  return {
+                      results:data
+                  };
+                }
+              },
+              //minimumResultsForSearch: Infinity
+            });
+
+            $('#assetLifetime').select2({
+              ajax:{
+                url:"/AMS/index.php/admin/MasterData/getLifetime",
+                dataType:"json",
+                delay:300,
+                processResults:function(data){
+                  return {
+                      results:data
+                  };
+                }
+              },
+              //minimumResultsForSearch: Infinity
+            });
+
+            $('#assetWarranty').select2({
+              ajax:{
+                url:"/AMS/index.php/admin/MasterData/getWarranty",
+                dataType:"json",
+                delay:300,
+                processResults:function(data){
+                  return {
+                      results:data
+                  };
+                }
+              },
+              //minimumResultsForSearch: Infinity
+            });
+
+
 
             //C.I.A value calculation
             $('#asset_dep_rate_C').change(function () {
@@ -347,7 +508,31 @@ $(document).ready(function () {
               var i = parseInt($('#asset_dep_rate_I').val());
               var a = parseInt($('#asset_dep_rate_A').val());
               var ave = (c + i + a)/3;
-              $('#asset_dep_value').val(ave.toFixed(2));
+              var value = ave.toFixed(3);
+              $('#asset_dep_value').val(value);
+              $('#asset_value').val(value);
+            }
+
+            // Generate PABC Number
+            $('#assetcat').change(function(){
+              $('#pabc_serial').val("");
+              $('#pabc_serial1').val("");
+            });
+            $('#sub_cat').change(function(){
+              generatePABC();
+            });
+
+            function generatePABC(){
+              var valc = $('#assetcat option:selected').text();
+              var prefix1 = valc.substring(0,2).toUpperCase();
+
+              var vals = $('#sub_cat option:selected').text();
+              var prefix2 = vals.substring(0,3).toUpperCase();
+
+              var prefix = prefix1+"-"+prefix2+"-"+Math.floor((Math.random()*10000));
+              $('#pabc_serial').val(prefix);
+              $('#pabc_serial1').val(prefix);
+
             }
     });
 
